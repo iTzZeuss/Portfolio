@@ -30,8 +30,11 @@ function Main() {
   }
 
   return (
+    <div>
+    <motion.button className={`bg-[url('./infoBTN.png')] bg-cover w-10 h-10 rounded-full absolute top-56 left-[1050px] `} variants={textVariants}>Click Me</motion.button>
+<div className='invisible absolute top-48 left-[1050px]'>
 <motion.div className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md ${isOpen ? '' : 'hidden'}`} variants={textVariants} initial="initial" animate="animate">
-      <motion.div className={`bg-slate-700 w-[521px] h-6 border-b-2 border-slate-800 ${isOpen ? '' : '!hidden'}`} variants={textVariants}>
+<motion.div className={`bg-slate-700 w-[520px] h-6 border-b-2 border-slate-800 ${isOpen ? '' : '!hidden'}`} variants={textVariants}>
         <motion.p className='text-white font-semibold ml-2 text-center'variants={textVariants}>Who I am</motion.p>
         <motion.button onClick={handleClose} className='absolute top-0 right-2 text-white animate-pulse' variants={textVariants}>x</motion.button>
       </motion.div>
@@ -58,6 +61,8 @@ function Main() {
         </div>
       </div>
     </motion.div>
+  </div>
+</div>
   );
 }
 
