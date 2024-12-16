@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 const textVariants = {
   initial: {
@@ -14,6 +14,14 @@ const textVariants = {
     transition: {
       duration: 1,
       staggerChildren: 0.1,
+    },
+    exit: {
+      x: -100,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
     },
   },
 };
@@ -33,131 +41,132 @@ function Main() {
 
   return (
     <div>
-      <div className="absolute top-[85px] left-[880px]">
-        <motion.h1 //first button text
-          className={`text-2xl font-semibold left-16`}
-          style={{ opacity: isHovered1 ? 1 : 0 }}
-        >
-          Skills
-        </motion.h1>
-        <motion.button //first button
-          className={`bg-[url('./infoBTN.png')] bg-cover w-14 h-14 rounded-full 
-     hover:size-16`}
-          variants={textVariants}
-          onMouseEnter={() => {
-            setIsHovered1(true);
-          }}
-          onMouseOut={() => {
-            setIsHovered1(false);
-          }}
-          onClick={() => {
-            setIsOpen1(!isOpen1);
-            setIsClicked1(true);
-          }}
-        ></motion.button>
-      </div>
-      <div className="absolute top-[85px] left-[1040px]">
-        <motion.h1 //second button text
-          className={`text-2xl font-semibold`}
-          style={{ opacity: isHovered2 ? 1 : 0 }}
-        >
-          About
-        </motion.h1>
-        <motion.button //second button
-          className={`bg-[url('./aboutMe.png')] bg-cover w-14 h-14 rounded-full hover:size-16`}
-          variants={textVariants}
-          onMouseEnter={() => {
-            setIsHovered2(true);
-          }}
-          onMouseOut={() => {
-            setIsHovered2(false);
-          }}
-          onClick={() => {
-            setIsOpen2(!isOpen2);
-            setIsClicked2(true);
-          }}
-        ></motion.button>
-      </div>
-      <div className="absolute top-[85px] left-[1180px]">
-        <motion.h1 //third button text
-          className={`text-2xl font-semibold`}
-          style={{ opacity: isHovered3 ? 1 : 0 }}
-        >
-          Certificates
-        </motion.h1>
-        <motion.button //third button
-          className={`bg-[url('./skills.png')] bg-cover w-14 h-14 hover:size-16`}
-          variants={textVariants}
-          onMouseEnter={() => {
-            setIsHovered3(true);
-          }}
-          onMouseOut={() => {
-            setIsHovered3(false);
-          }}
-          onClick={() => {
-            setIsOpen3(!isOpen3);
-            setIsClicked3(true);
-          }}
-        ></motion.button>
-      </div>
+      <motion.h1 //first button text
+        className={`text-2xl font-semibold absolute top-[120px] left-[1195px]`}
+        style={{ opacity: isHovered1 ? 1 : 0 }}
+      >
+        Skills
+      </motion.h1>
+      <motion.button //first button
+        className={`bg-[url('./infoBTN.png')] bg-cover w-14 h-14 rounded-full 
+     hover:size-[66px] absolute top-[150px] left-[1190px]`}
+        variants={textVariants}
+        onMouseEnter={() => {
+          setIsHovered1(true);
+        }}
+        onMouseOut={() => {
+          setIsHovered1(false);
+        }}
+        onClick={() => {
+          setIsOpen1(!isOpen1);
+          setIsClicked1(true);
+        }}
+      ></motion.button>
+
+      <motion.h1 //second button text
+        className={`text-2xl font-semibold absolute top-[120px] left-[1338px]`}
+        style={{ opacity: isHovered2 ? 1 : 0 }}
+      >
+        About
+      </motion.h1>
+      <motion.button //second button
+        className={`bg-[url('./aboutMe.png')] bg-cover w-14 h-14 rounded-full hover:size-16 absolute top-[150px] left-[1340px]`}
+        variants={textVariants}
+        onMouseEnter={() => {
+          setIsHovered2(true);
+        }}
+        onMouseOut={() => {
+          setIsHovered2(false);
+        }}
+        onClick={() => {
+          setIsOpen2(!isOpen2);
+          setIsClicked2(true);
+        }}
+      ></motion.button>
+
+      <motion.h1 //third button text
+        className={`text-2xl font-semibold absolute top-[120px] left-[1456px]`}
+        style={{ opacity: isHovered3 ? 1 : 0 }}
+      >
+        Certificates
+      </motion.h1>
+      <motion.button //third button
+        className={`bg-[url('./skills.png')] bg-cover w-14 h-14 hover:size-16 absolute top-[150px] left-[1480px]`}
+        variants={textVariants}
+        onMouseEnter={() => {
+          setIsHovered3(true);
+        }}
+        onMouseOut={() => {
+          setIsHovered3(false);
+        }}
+        onClick={() => {
+          setIsOpen3(!isOpen3);
+          setIsClicked3(true);
+        }}
+      ></motion.button>
       {isOpen1 && (
-        <div
-          className="invisible absolute top-40 left-[770px]" //first code snippet
-        >
+        <AnimatePresence>
           <motion.div
-            className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
-${isOpen1 ? "" : "hidden"}`}
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            style={{ visibility: isClicked1 ? "visible" : "" }}
+            key="first-snippet"
+            className="invisible absolute top-[205px] left-[1040px]" //first code snippet
           >
             <motion.div
-              className={`bg-slate-700 w-[520px] h-6 border-b-2 border-slate-800 ${
-                isOpen1 ? "" : "!hidden"
-              }`}
+              className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
+${isOpen1 ? "" : "hidden"}`}
               variants={textVariants}
+              initial="initial"
+              animate="animate"
+              style={{ visibility: isClicked1 ? "visible" : "" }}
             >
-              <motion.p
-                className="text-white font-semibold ml-2 text-center"
+              <motion.div
+                className={`bg-slate-700 w-[520px] h-6 border-b-2 border-slate-800 ${
+                  isOpen1 ? "" : "!hidden"
+                }`}
                 variants={textVariants}
               >
-                Skills
-              </motion.p>
-            </motion.div>
-            <div className="text-justify break-all">
-              <p className="text-white font-bold p-1 text-left">
-                I am a passionate developer with expertise in React, JavaScript,
-                <br></br>Tailwind, HTML, and CSS, focused on crafting modern,
-                responsive web applications. Skilled in transforming designs
-                into dynamic, <br></br> user-friendly interfaces through clean,
-                efficient code. Also, i have <br></br> deleloped a strong grasp
-                of component-based development and <br></br>streamlined styling
-                techniques. Continuously learning and adapting to emerging
-                trends, bringing innovative solutions to both team <br></br>
-                collaborations and individual challenges.
-              </p>
-              <div className="text-center">
-                <ReactTyped
-                  className="text-white font-bold justify-center"
-                  strings={[
-                    "I am reliable",
-                    "I am organized",
-                    "I am flexible",
-                    "I am fast-paced",
-                  ]}
-                  typeSpeed={200}
-                  backSpeed={100}
-                  loop
-                />
+                <motion.p
+                  className="text-white font-semibold ml-2 text-center"
+                  variants={textVariants}
+                >
+                  Skills
+                </motion.p>
+              </motion.div>
+              <div className="text-justify break-all">
+                <p className="text-white font-bold p-1 text-left">
+                  I am a passionate developer with expertise in React,
+                  JavaScript,
+                  <br></br>Tailwind, HTML, and CSS, focused on crafting modern,
+                  responsive web applications. Skilled in transforming designs
+                  into dynamic, <br></br> user-friendly interfaces through
+                  clean, efficient code. Also, i have <br></br> deleloped a
+                  strong grasp of component-based development and <br></br>
+                  streamlined styling techniques. Continuously learning and
+                  adapting to emerging trends, bringing innovative solutions to
+                  both team <br></br>
+                  collaborations and individual challenges.
+                </p>
+                <div className="text-center">
+                  <ReactTyped
+                    className="text-white font-bold justify-center"
+                    strings={[
+                      "I am reliable",
+                      "I am organized",
+                      "I am flexible",
+                      "I am fast-paced",
+                    ]}
+                    typeSpeed={200}
+                    backSpeed={100}
+                    loop
+                  />
+                </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
-        </div>
+        </AnimatePresence>
       )}
       {isOpen2 && (
         <div
-          className="invisible absolute top-40 left-[770px]" //second code snippet
+          className="invisible absolute top-[205px] left-[1040px]" //second code snippet
         >
           <motion.div
             className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
@@ -212,7 +221,7 @@ ${isOpen2 ? "" : "hidden"}`}
       )}
       {isOpen3 && (
         <div
-          className="invisible absolute top-40 left-[770px]" //third code snippet
+          className="invisible absolute top-[205px] left-[1040px]" //third code snippet
         >
           <motion.div
             className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
