@@ -1,15 +1,30 @@
 import { animate, motion } from "framer-motion";
 import React from "react";
 
-const textSlide = {
+const textSlide1 = {
   initial: {
     x: 0,
   },
   animate: {
-    x: "-220%",
+    x: "-80vw",
     transition: {
       repeat: Infinity,
-      duration: 20,
+      repeatType: "mirror",
+      duration: 15,
+    },
+  },
+};
+
+const textSlide2 = {
+  initial: {
+    x: -1500,
+  },
+  animate: {
+    x: "10vw",
+    transition: {
+      repeat: Infinity,
+      repeatType: "mirror",
+      duration: 15,
     },
   },
 };
@@ -17,16 +32,16 @@ const textSlide = {
 function Clock() {
   return (
     <div
-      className="bg-gray-200 absolute top-[900px] w-full h-[500px] 
-                 justify-items-center content-center grid gap-3"
+      className="bg-gray-200 absolute top-[1000px] w-full h-[900px] 
+                 justify-items-center content-center grid gap-3 overflow-hidden"
     >
       <motion.p
-        className="w-full font-bold text-7xl absolute top-2 left-3 whitespace-nowrap text-gray-600 opacity-75"
-        variants={textSlide}
+        className="w-full font-bold text-8xl absolute top-2 left-[370px] whitespace-nowrap text-gray-600 opacity-75"
+        variants={textSlide1}
         initial="initial"
         animate="animate"
       >
-        John Doe Coder Content Creator Experienced
+        John Doe Programmer Experienced Proffesional Animator Designer
       </motion.p>
       <motion.div
         className="size-36 bg-black"
@@ -37,6 +52,14 @@ function Clock() {
         }}
         initial={{ rotate: "0deg" }}
       ></motion.div>
+      <motion.p
+        className="w-full font-bold text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-600 opacity-75"
+        variants={textSlide2}
+        initial="initial"
+        animate="animate"
+      >
+        John Doe Programmer Experienced Proffesional Animator Designer
+      </motion.p>
     </div>
   );
 }
