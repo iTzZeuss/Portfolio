@@ -33,23 +33,23 @@ function Main() {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
-  const [isClicked1, setIsClicked1] = useState();
-  const [isClicked2, setIsClicked2] = useState();
-  const [isClicked3, setIsClicked3] = useState();
+  const [isClicked1, setIsClicked1] = useState(false);
+  const [isClicked2, setIsClicked2] = useState(false);
+  const [isClicked3, setIsClicked3] = useState(false);
 
   function closeSnip() {}
 
   return (
     <div>
       <motion.h1 //first button text
-        className={`text-2xl font-semibold absolute top-[120px] left-[1195px]`}
+        className={`text-3xl font-semibold absolute top-[90px] left-[1112px]`}
         style={{ opacity: isHovered1 ? 1 : 0 }}
       >
         Skills
       </motion.h1>
       <motion.button //first button
-        className={`bg-[url('./infoBTN.png')] bg-cover w-14 h-14 rounded-full 
-     hover:size-[66px] absolute top-[150px] left-[1190px]`}
+        className={`bg-[url('./infoBTN.png')] bg-cover w-[80px] h-[80px] rounded-full 
+     hover:size-[90px] absolute top-[128px] left-[1100px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered1(true);
@@ -64,13 +64,14 @@ function Main() {
       ></motion.button>
 
       <motion.h1 //second button text
-        className={`text-2xl font-semibold absolute top-[120px] left-[1338px]`}
+        className={`text-3xl font-semibold absolute top-[90px] left-[1302px]`}
         style={{ opacity: isHovered2 ? 1 : 0 }}
       >
         About
       </motion.h1>
       <motion.button //second button
-        className={`bg-[url('./aboutMe.png')] bg-cover w-14 h-14 rounded-full hover:size-16 absolute top-[150px] left-[1340px]`}
+        className={`bg-[url('./aboutMe.png')] bg-cover w-[80px] h-[80px] rounded-full 
+          hover:size-[90px] absolute top-[128px] left-[1300px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered2(true);
@@ -85,13 +86,14 @@ function Main() {
       ></motion.button>
 
       <motion.h1 //third button text
-        className={`text-2xl font-semibold absolute top-[120px] left-[1456px]`}
+        className={`text-3xl font-semibold absolute top-[90px] left-[1467px]`}
         style={{ opacity: isHovered3 ? 1 : 0 }}
       >
         Certificates
       </motion.h1>
       <motion.button //third button
-        className={`bg-[url('./skills.png')] bg-cover w-14 h-14 hover:size-16 absolute top-[150px] left-[1480px]`}
+        className={`bg-[url('./skills.png')] bg-cover w-[80px] h-[80px]
+          hover:size-[90px] absolute top-[128px] left-[1490px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered3(true);
