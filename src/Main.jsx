@@ -42,14 +42,14 @@ function Main() {
   return (
     <div>
       <motion.h1 //first button text
-        className={`text-white text-3xl font-bold absolute top-[102px] left-[178px]`}
+        className={`text-white text-3xl font-bold absolute top-[85px] left-[141px]`}
         style={{ opacity: isHovered1 ? 1 : 0 }}
       >
         Skills
       </motion.h1>
       <motion.button //first button
-        className={`bg-[url('./laptop.png')] bg-cover w-[80px] h-[80px]
-        hover:bg-[url('./laptopAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[200px]`}
+        className={`bg-[url('./coder.png')] bg-cover w-[80px] h-[80px]
+        hover:bg-[url('./coderAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[150px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered1(true);
@@ -64,14 +64,14 @@ function Main() {
       ></motion.button>
 
       <motion.h1 //second button text
-        className={`text-white text-3xl font-bold absolute top-[102px] left-[400px]`}
+        className={`text-white text-3xl font-bold absolute top-[102px] left-[330px]`}
         style={{ opacity: isHovered2 ? 1 : 0 }}
       >
         About
       </motion.h1>
       <motion.button //second button
-        className={`bg-[url('./dossier.png')] bg-cover w-[80px] h-[80px]
-          hover:bg-[url('./dossierAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[450px]`}
+        className={`bg-[url('./laptop.png')] bg-cover w-[80px] h-[80px]
+          hover:bg-[url('./laptopAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[370px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered2(true);
@@ -86,14 +86,14 @@ function Main() {
       ></motion.button>
 
       <motion.h1 //third button text
-        className={`text-3xl font-semibold absolute top-[90px] left-[1467px]`}
+        className={`text-3xl font-semibold absolute top-[90px] left-[640px]`}
         style={{ opacity: isHovered3 ? 1 : 0 }}
       >
         Certificates
       </motion.h1>
       <motion.button //third button
         className={`bg-[url('./skills.png')] bg-cover w-[80px] h-[80px]
-          hover:size-[90px] absolute top-[128px] left-[1490px]`}
+          hover:bg-[url('./employeeAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[650px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered3(true);
@@ -110,31 +110,24 @@ function Main() {
         <AnimatePresence>
           <motion.div
             key="first-snippet"
-            className="invisible relative top-[150px] left-[1040px]" //first code snippet
+            className="invisible absolute top-[340px] left-[-30px]" //first code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
+              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[700px] h-[400px] m-16 rounded-md 
 ${isOpen1 ? "" : "hidden"}`}
               variants={textVariants}
               initial="initial"
               animate="animate"
               style={{ visibility: isClicked1 ? "visible" : "" }}
             >
-              <motion.div
-                className={`bg-slate-700 w-[520px] h-6 border-b-2 border-slate-800 ${
-                  isOpen1 ? "" : "!hidden"
-                }`}
+              <motion.p
+                className="text-white font-semibold ml-2 text-center text-4xl mt-2"
                 variants={textVariants}
               >
-                <motion.p
-                  className="text-white font-semibold ml-2 text-center"
-                  variants={textVariants}
-                >
-                  Skills
-                </motion.p>
-              </motion.div>
-              <div className="text-justify break-all">
-                <p className="text-white font-bold p-1 text-left">
+                Skills
+              </motion.p>
+              <div className="text-justify break-all flex mt-5">
+                <p className="text-white font-bold p-1 text-left text-xl">
                   I am a passionate developer with expertise in React,
                   JavaScript,
                   <br></br>Tailwind, HTML, and CSS, focused on crafting modern,
@@ -149,7 +142,7 @@ ${isOpen1 ? "" : "hidden"}`}
                 </p>
                 <div className="text-center">
                   <ReactTyped
-                    className="text-white font-bold justify-center"
+                    className="text-white font-bold justify-center absolute top-[330px] right-[310px] text-2xl"
                     strings={[
                       "I am reliable",
                       "I am organized",
@@ -168,25 +161,25 @@ ${isOpen1 ? "" : "hidden"}`}
       )}
       {isOpen2 && (
         <div
-          className="invisible relative top-[170px] left-[1040px]" //second code snippet
+          className="invisible absolute top-[340px] left-[800px]" //second code snippet
         >
           <motion.div
-            className={`shadow-3xl relative px-2 py-1 bg-[#282c34] w-[533px] !important h-80 m-16 rounded-md 
-${isOpen2 ? "" : "hidden"}`}
+            className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[700px] h-[400px] m-16 rounded-md 
+                ${isOpen2 ? "" : "hidden"}`}
             variants={textVariants}
             initial="initial"
             animate="animate"
             style={{ visibility: isClicked2 ? "visible" : "" }}
           >
             <motion.p
-              className="text-white font-semibold ml-2 text-center"
+              className="text-white font-semibold ml-2 text-center text-4xl mt-2"
               variants={textVariants}
             >
               Who I am
             </motion.p>
 
-            <div className="text-justify break-all">
-              <p className="text-white font-bold p-1 text-left">
+            <div className="text-justify break-all flex mt-5">
+              <p className="text-white font-bold p-1 text-left text-xl">
                 Hi there! I'm a curious and creative individual with a passion
                 for innovation and problem-solving. When I'm not working on my
                 latest project, you can find me exploring new hiking trails,
@@ -199,7 +192,7 @@ ${isOpen2 ? "" : "hidden"}`}
               </p>
               <div className="text-center">
                 <ReactTyped
-                  className="text-white font-bold justify-center"
+                  className="text-white font-bold justify-center absolute top-[330px] right-[310px] text-2xl"
                   strings={[
                     "I am reliable",
                     "I am organized",
@@ -217,7 +210,7 @@ ${isOpen2 ? "" : "hidden"}`}
       )}
       {isOpen3 && (
         <div
-          className="invisible relative top-[205px] left-[1040px]" //third code snippet
+          className="invisible absolute top-[205px] left-[1040px]" //third code snippet
         >
           <motion.div
             className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
