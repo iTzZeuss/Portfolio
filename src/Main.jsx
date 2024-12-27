@@ -42,14 +42,14 @@ function Main() {
   return (
     <div>
       <motion.h1 //first button text
-        className={`text-3xl font-semibold absolute top-[90px] left-[1112px]`}
+        className={`text-white text-3xl font-bold absolute top-[102px] left-[178px]`}
         style={{ opacity: isHovered1 ? 1 : 0 }}
       >
         Skills
       </motion.h1>
       <motion.button //first button
-        className={`bg-[url('./infoBTN.png')] bg-cover w-[80px] h-[80px] rounded-full 
-     hover:size-[90px] absolute top-[128px] left-[1100px]`}
+        className={`bg-[url('./laptop.png')] bg-cover w-[80px] h-[80px]
+        hover:bg-[url('./laptopAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[200px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered1(true);
@@ -64,14 +64,14 @@ function Main() {
       ></motion.button>
 
       <motion.h1 //second button text
-        className={`text-3xl font-semibold absolute top-[90px] left-[1302px]`}
+        className={`text-white text-3xl font-bold absolute top-[102px] left-[400px]`}
         style={{ opacity: isHovered2 ? 1 : 0 }}
       >
         About
       </motion.h1>
       <motion.button //second button
-        className={`bg-[url('./aboutMe.png')] bg-cover w-[80px] h-[80px] rounded-full 
-          hover:size-[90px] absolute top-[128px] left-[1300px]`}
+        className={`bg-[url('./dossier.png')] bg-cover w-[80px] h-[80px]
+          hover:bg-[url('./dossierAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[450px]`}
         variants={textVariants}
         onMouseEnter={() => {
           setIsHovered2(true);
@@ -110,7 +110,7 @@ function Main() {
         <AnimatePresence>
           <motion.div
             key="first-snippet"
-            className="invisible absolute top-[205px] left-[1040px]" //first code snippet
+            className="invisible relative top-[150px] left-[1040px]" //first code snippet
           >
             <motion.div
               className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
@@ -168,29 +168,23 @@ ${isOpen1 ? "" : "hidden"}`}
       )}
       {isOpen2 && (
         <div
-          className="invisible absolute top-[205px] left-[1040px]" //second code snippet
+          className="invisible relative top-[170px] left-[1040px]" //second code snippet
         >
           <motion.div
-            className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 
+            className={`shadow-3xl relative px-2 py-1 bg-[#282c34] w-[533px] !important h-80 m-16 rounded-md 
 ${isOpen2 ? "" : "hidden"}`}
             variants={textVariants}
             initial="initial"
             animate="animate"
             style={{ visibility: isClicked2 ? "visible" : "" }}
           >
-            <motion.div
-              className={`bg-slate-700 w-[520px] h-6 border-b-2 border-slate-800 ${
-                isOpen2 ? "" : "!hidden"
-              }`}
+            <motion.p
+              className="text-white font-semibold ml-2 text-center"
               variants={textVariants}
             >
-              <motion.p
-                className="text-white font-semibold ml-2 text-center"
-                variants={textVariants}
-              >
-                Who I am
-              </motion.p>
-            </motion.div>
+              Who I am
+            </motion.p>
+
             <div className="text-justify break-all">
               <p className="text-white font-bold p-1 text-left">
                 Hi there! I'm a curious and creative individual with a passion
@@ -223,7 +217,7 @@ ${isOpen2 ? "" : "hidden"}`}
       )}
       {isOpen3 && (
         <div
-          className="invisible absolute top-[205px] left-[1040px]" //third code snippet
+          className="invisible relative top-[205px] left-[1040px]" //third code snippet
         >
           <motion.div
             className={`relative px-2 py-1 bg-slate-500 w-[533px] !important h-80 m-16 rounded-md 

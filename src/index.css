@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-bg1 w-full h-full bg-cover bg-no-repeat;
+  @apply bg-bg1 max-w-full h-full bg-cover bg-no-repeat;
 }
