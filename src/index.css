@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "PlaywriteIEGuides";
+    font-style: normal;
+    src: url(./fonts/PlaywriteIEGuides-Regular.ttf);
+  }
+}
+
 body {
   @apply bg-bg1 max-w-full h-full bg-cover bg-no-repeat;
 }
