@@ -32,11 +32,11 @@ const textSlide2 = {
 function Clock() {
   return (
     <div
-      className="bg-gray-200 absolute top-[1000px] w-full h-[900px] 
+      className="bg-gray-900 absolute top-[1000px] w-full h-[900px] 
                  justify-items-center content-center grid gap-3 overflow-hidden"
     >
       <motion.p
-        className="w-full font-bold text-8xl absolute top-2 left-[370px] whitespace-nowrap text-gray-600 opacity-75"
+        className="w-full font-bold text-8xl absolute top-2 left-[370px] whitespace-nowrap text-gray-500 opacity-75"
         variants={textSlide1}
         initial="initial"
         animate="animate"
@@ -53,7 +53,7 @@ function Clock() {
         initial={{ rotate: "0deg" }}
       ></motion.div>
       <motion.p
-        className="w-full font-bold text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-600 opacity-75"
+        className="w-full font-bold text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
         variants={textSlide2}
         initial="initial"
         animate="animate"
