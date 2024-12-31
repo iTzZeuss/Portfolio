@@ -37,8 +37,6 @@ function Main() {
   const [isClicked2, setIsClicked2] = useState(false);
   const [isClicked3, setIsClicked3] = useState(false);
 
-  function closeSnip() {}
-
   return (
     <div>
       <div className="absolute top-[100px] right-[2024px] scale-125">
