@@ -21,9 +21,8 @@ function Clock() {
   const [isHovered2, setIsHovered2] = useState(false); //project
   const [isHovered3, setIsHovered3] = useState(false); //next button
   const [isHovered4, setIsHovered4] = useState(false); //pause animation button
-  const [isClicked1, setIsClicked1] = useState(false); //previous button click
-  const [isClicked2, setIsClicked2] = useState(false); //project click
-  const [isClicked3, setIsClicked3] = useState(false); //next button click
+  const [isClicked, setIsClicked] = useState(false); //project click
+  const [currentImage, setCurrentImage] = useState(false); //next button click
 
   return (
     <div
@@ -45,7 +44,11 @@ function Clock() {
           setIsHovered1(false);
         }}
         onClick={() => {
-          setIsClicked1(true);
+          setCurrentImage(currentImage - 1);
+          if (currentImage < 1) {
+            setCurrentImage(3);
+          }
+          console.log(currentImage);
         }}
       ></div>
       <p
@@ -64,7 +67,7 @@ function Clock() {
           setIsHovered2(false);
         }}
         onClick={() => {
-          setIsClicked2(true);
+          setIsClicked(true);
         }}
       ></div>
       <p
@@ -82,7 +85,11 @@ function Clock() {
           setIsHovered3(false);
         }}
         onClick={() => {
-          setIsClicked3(true);
+          setCurrentImage(currentImage + 1);
+          if (currentImage > 2) {
+            setCurrentImage(1);
+          }
+          console.log(currentImage);
         }}
       ></div>
       <p
