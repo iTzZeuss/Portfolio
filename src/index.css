@@ -13,3 +13,23 @@
 body {
   @apply bg-bg1 max-w-full h-full bg-cover bg-no-repeat;
 }
+
+/* Global dark scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+  height: 10px; /* Height of the horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555; /* Darker color for the scrollbar thumb */
+  border-radius: 5px; /* Rounded edges for a smoother look */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1a1a1a; /* Match the site's darker background */
+}
+
+/* Optional: Hover effect for the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777; /* Slightly lighter on hover */
+}
