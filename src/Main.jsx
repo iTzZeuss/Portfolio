@@ -106,15 +106,14 @@ function Main() {
           }}
         ></motion.button>
       </div>
-      {isOpen1 && (
+      {isOpen1 && isClicked1 && (
         <AnimatePresence>
           <motion.div
             key="first-snippet"
             className="invisible absolute top-[500px] left-[-30px]" //first code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[700px] h-[400px] m-16 rounded-md 
-${isOpen1 ? "" : "hidden"}`}
+              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[700px] h-[400px] m-16 rounded-md`}
               variants={textVariants}
               initial="initial"
               animate="animate"
@@ -127,7 +126,7 @@ ${isOpen1 ? "" : "hidden"}`}
                 Skills
               </motion.p>
               <div className="text-justify break-all flex mt-5">
-                <p className="text-white font-bold p-1 text-left text-xl">
+                <p className="text-white font-bold p-1 text-left text-xl leading-relaxed">
                   I am a passionate developer with expertise in React,
                   JavaScript,
                   <br></br>Tailwind, HTML, and CSS, focused on crafting modern,
@@ -143,7 +142,7 @@ ${isOpen1 ? "" : "hidden"}`}
               </div>
               <motion.div className="text-center">
                 <ReactTyped
-                  className="text-white font-bold justify-center absolute top-[330px] right-[290px] text-2xl"
+                  className="text-white font-bold justify-center absolute top-[350px] right-[305px] text-2xl"
                   strings={[
                     "I am reliable",
                     "I am organized",
@@ -179,7 +178,7 @@ ${isOpen1 ? "" : "hidden"}`}
             </motion.p>
 
             <div className="text-justify break-all flex mt-5">
-              <p className="text-white font-bold p-1 text-left text-xl">
+              <p className="text-white font-bold p-1 text-left text-xl leading-relaxed">
                 Hi there! I'm a curious and creative individual with a passion
                 for<br></br>innovation and problem-solving. When I'm not working
                 on my latest<br></br>project, you can find me exploring new
@@ -214,7 +213,7 @@ ${isOpen1 ? "" : "hidden"}`}
             </motion.p>
 
             <div className="text-justify break-all flex mt-5">
-              <p className="text-white font-bold p-1 text-left text-xl">
+              <p className="text-white font-bold p-1 text-left text-xl leading-relaxed">
                 I'm proud to showcase my certifications in various fields,
                 demonstrating my expertise and commitment to staying up-to-date
                 with the latest<br></br> industry trends. With certifications in
