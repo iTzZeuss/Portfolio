@@ -1,6 +1,9 @@
 import React from "react";
+import { useState } from "react";
 
 function Team() {
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <div>
       <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1300px] text-center absolute top-[1900px] overflow-hidden leading-relaxed">
@@ -36,7 +39,7 @@ function Team() {
         <section className="text-center my-16">
           {" "}
           <p className="text-gray-400 font-bold text-4xl m-24">Contact Me</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-16 justify-items-center">
             <a
               href="https://www.instagram.com/_theodosiadiss_/"
               className="text-cyan-600 font-bold text-4xl hover:text-cyan-400 transition-colors"
@@ -48,7 +51,7 @@ function Team() {
             </a>{" "}
             <a
               href="https://x.com/Giannis763881 "
-              className="text-gray-400 font-bold text-4xl hover:text-white transition-colors"
+              className="text-cyan-600 font-bold text-4xl hover:text-cyan-400 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit my X profile"
@@ -57,13 +60,45 @@ function Team() {
             </a>
             <a
               href="https://www.fiverr.com/sellers/giannis_theodo/"
-              className="text-green-600 font-bold text-4xl hover:text-green-400 transition-colors"
+              className="text-cyan-600 font-bold text-4xl hover:text-cyan-400 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit my Fiverr profile"
             >
               Fiverr
             </a>
+            <a
+              href="https://github.com/iTzZeuss"
+              className="text-cyan-600 font-bold text-4xl hover:text-cyan-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit my GitHub profile"
+            >
+              GitHub
+            </a>{" "}
+            <a
+              href="mailto:johntheojohn@gmail.com"
+              className="text-cyan-600 font-bold text-4xl hover:text-cyan-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Email me"
+            >
+              Email
+            </a>
+            <p
+              className="text-cyan-600 font-bold text-4xl hover:text-cyan-400 transition-colors cursor-pointer"
+              onClick={() => setIsClicked(!isClicked)}
+            >
+              Discord
+            </p>
+            <div
+              className="bg-blue-600 rounded-3xl h-11 w-52 absolute mt-[148px] right-[192px] transition-all duration-300 ease-in-out hover:bg-blue-700 shadow-lg "
+              style={{ opacity: isClicked ? 1 : 0 }}
+            >
+              <p className="text-[19px] font-semibold text-white mt-1">
+                username: cns_master
+              </p>
+            </div>
           </div>
         </section>
       </div>
