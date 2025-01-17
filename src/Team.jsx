@@ -6,7 +6,7 @@ function Team() {
 
   return (
     <div>
-      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1300px] text-center absolute top-[1900px] overflow-hidden leading-relaxed">
+      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center absolute top-[1900px] overflow-hidden leading-relaxed">
         <p className="text-gray-400 font-bold text-4xl m-24">
           A few words about our team
         </p>
@@ -101,6 +101,12 @@ function Team() {
             </div>
           </div>
         </section>
+        <div className="w-full h-[5px] bg-gray-500 opacity-35 text-center">
+          <p className="text-white font-semibold text-2xl p-5">
+            ©{new Date().getFullYear()} John Doe | All Rights Reserved. &nbsp;
+            Icons by Flaticon.
+          </p>
+        </div>
       </div>
     </div>
   );

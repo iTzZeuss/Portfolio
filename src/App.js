@@ -1,11 +1,10 @@
 import { useRef } from "react";
-import Clock from "./Clock.jsx";
+import Projects from "./Projects.jsx";
 import Header from "./Header.jsx";
 import Main from "./Main.jsx";
 import Team from "./Team.jsx";
-import Footer from "./Footer.jsx";
 
-function Projects() {
+function Project() {
   return (
     <div className="min-h-screen bg-gray-200">
       <h1 className="text-center text-5xl py-20">Projects</h1>
@@ -38,14 +37,12 @@ function App() {
     <>
       <Header scrollToComponent={scrollToComponent} />
       <Main />
-      <Clock />{" "}
+      <Projects />{" "}
       <div ref={projectsRef}>
         {" "}
         <Team />
       </div>
-      <div ref={contactRef}>
-        <Footer />
-      </div>
+      <div ref={contactRef}></div>
     </>
   );
 }

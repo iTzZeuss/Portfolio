@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-function Clock() {
+function Projects() {
   const [anim, setAnim] = useState(true);
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
@@ -208,4 +208,4 @@ function Clock() {
   );
 }
 
-export default Clock;
+export default Projects;
