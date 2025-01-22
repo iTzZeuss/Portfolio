@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function Team() {
+function Team({ scrollToComponent }) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -101,11 +101,17 @@ function Team() {
             </div>
           </div>
         </section>
-        <div className="w-full h-[5px] bg-gray-500 opacity-35 text-center">
+        <div className="w-full h-[5px] bg-gray-500 opacity-35 text-center relative">
           <p className="text-white font-semibold text-2xl p-5">
-            ©{new Date().getFullYear()} John Doe | All Rights Reserved. &nbsp;
+            &copy;{new Date().getFullYear()} John Doe | All Rights Reserved.
             Icons by Flaticon.
           </p>
+          <div onClick={() => scrollToComponent(0)}>
+            <p className="text-white font-semibold text-2xl p-5 absolute right-10 top-0 cursor-pointer">
+              BACK TO TOP{" "}
+              <div className="bg-[url('./arrowUp.png')] bg-cover bg-no-repeat w-[30px] h-[15px] inline-block cursor-pointer"></div>
+            </p>
+          </div>
         </div>
       </div>
     </div>

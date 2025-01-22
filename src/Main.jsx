@@ -26,7 +26,7 @@ const textVariants = {
   },
 };
 
-function Main() {
+function Main({ scrollToComponent }) {
   const [isOpen1, setIsOpen1] = useState(true);
   const [isOpen2, setIsOpen2] = useState(true);
   const [isOpen3, setIsOpen3] = useState(true);
@@ -39,7 +39,30 @@ function Main() {
 
   return (
     <div>
-      <div className="absolute top-[100px] right-[2024px] scale-125">
+      {/* Navigation Links */}
+
+      <p className="text-white text-5xl m-14 font-bold">Giannis Theodosiadis</p>
+      <div className="flex justify-end -mt-24 mr-10">
+        <button
+          className="text-4xl font-varela text-white opacity-45 cursor-pointer hover:text-gray-300 transition-colors"
+          onClick={() => scrollToComponent(1000)} // Scroll to Projects
+        >
+          Projects
+        </button>
+        &nbps;
+        <button
+          className="text-4xl font-varela text-white opacity-45 cursor-pointer hover:text-gray-300 transition-colors"
+          onClick={() => scrollToComponent(2400)} // Scroll to Contact
+        >
+          Contact me
+        </button>
+      </div>
+      <div>
+        <p className="text-white text-8xl font-anton font-semibold tracking-wider">
+          Hello there!
+        </p>
+      </div>
+      <div className="absolute top-[100px] right-[920px] scale-125">
         <motion.h1 //first button text
           className={`text-white text-3xl font-bold absolute top-[85px] left-[141px]`}
           style={{ opacity: isHovered1 ? 1 : 0 }}

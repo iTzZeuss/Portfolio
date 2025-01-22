@@ -5,10 +5,12 @@ module.exports = {
     extend: {
       fontFamily: {
         calli: ["PlaywriteIEGuides"],
+        varela: ["Varela"],
+        anton: ["Anton"],
       },
       backgroundImage: {
         bg1: "url('./backgroundSample1.jpg')",
-        bg2: "url('./backgroundSample2.jpg')",
+        bg2: "url('./backgroundSample3.png')",
       },
     },
   },

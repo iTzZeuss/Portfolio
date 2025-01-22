@@ -8,10 +8,20 @@
     font-style: normal;
     src: url(./fonts/PlaywriteIEGuides-Regular.ttf);
   }
+  @font-face {
+    font-family: "Varela";
+    font-style: normal;
+    src: url(./fonts/Varela-Regular.ttf);
+  }
+  @font-face {
+    font-family: "Anton";
+    font-style: normal;
+    src: url(./fonts/Anton-Regular.ttf);
+  }
 }
 
 body {
-  @apply bg-bg1 max-w-full h-full bg-cover bg-no-repeat;
+  @apply bg-bg2 max-w-full h-full bg-cover bg-no-repeat;
 }
 
 /* Global dark scrollbar styling */

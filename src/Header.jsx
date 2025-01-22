@@ -2,27 +2,33 @@ import React from "react";
 
 function Header({ scrollToComponent }) {
   return (
-    <div
-      className={`rounded-b-xl bg-gray-600 min-w-full h-16 border-gray-600 text-center p-3`}
-    >
+    <div className="rounded-b-xl bg-gray-600 w-full h-16 border-gray-600 text-center p-3 flex justify-between items-center">
+      {/* Portfolio Title */}
       <p className="text-4xl font-bold text-black">Portfolio</p>
-      <p className="text-4xl font-extrabold absolute top-2">John Doe</p>
-      <div>
-        <a className="text-3xl font-bold absolute top-[17px] right-[470px] cursor-pointer">
+
+      {/* Name */}
+      <p className="text-4xl font-extrabold">John Doe</p>
+
+      {/* Navigation Links */}
+      <div className="flex space-x-8">
+        <button
+          className="text-3xl font-bold text-white cursor-pointer hover:text-gray-300 transition-colors"
+          onClick={() => scrollToComponent(0)} // Scroll to top
+        >
           Introduction
-        </a>
-        <a
-          className="text-3xl font-bold absolute top-[17px] right-[300px] cursor-pointer"
-          onClick={() => scrollToComponent("projectsRef")}
+        </button>
+        <button
+          className="text-3xl font-bold text-white cursor-pointer hover:text-gray-300 transition-colors"
+          onClick={() => scrollToComponent(1000)} // Scroll to Projects
         >
           Projects
-        </a>
-        <a
-          className="text-3xl font-bold absolute top-[17px] right-[100px] cursor-pointer"
-          onClick={() => scrollToComponent("contactRef")}
+        </button>
+        <button
+          className="text-3xl font-bold text-white cursor-pointer hover:text-gray-300 transition-colors"
+          onClick={() => scrollToComponent(2400)} // Scroll to Contact
         >
           Contact me
-        </a>
+        </button>
       </div>
     </div>
   );
