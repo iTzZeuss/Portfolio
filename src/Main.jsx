@@ -37,29 +37,48 @@ function Main({ scrollToComponent }) {
   const [isClicked2, setIsClicked2] = useState(false);
   const [isClicked3, setIsClicked3] = useState(false);
 
-  return (
-    <div>
-      {/* Navigation Links */}
+  const scrollToPosition = (position) => {
+    window.scrollTo({
+      top: position, // Scroll to this vertical position
+      behavior: "smooth", // Smooth scroll
+    });
+  };
 
-      <p className="text-white text-5xl m-14 font-bold">Giannis Theodosiadis</p>
-      <div className="flex justify-end -mt-24 mr-10">
+  return (
+    <div className="h-48">
+      {/* Navigation Links */}
+      <div className="flex justify-end p-8 mr-40">
         <button
-          className="text-4xl font-varela text-white opacity-45 cursor-pointer hover:text-gray-300 transition-colors"
-          onClick={() => scrollToComponent(1000)} // Scroll to Projects
+          className="text-4xl font-varela text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group mr-10"
+          onClick={() => scrollToPosition(1000)} // Scroll to Projects
         >
-          Projects
+          <span className="relative">
+            Projects
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
+          </span>
         </button>
-        &nbps;
         <button
-          className="text-4xl font-varela text-white opacity-45 cursor-pointer hover:text-gray-300 transition-colors"
-          onClick={() => scrollToComponent(2400)} // Scroll to Contact
+          className="text-4xl font-varela text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group"
+          onClick={() => scrollToPosition(2400)} // Scroll to Contact
         >
-          Contact me
+          <span className="relative">
+            Contact me
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
+          </span>
         </button>
       </div>
-      <div>
-        <p className="text-white text-8xl font-anton font-semibold tracking-wider">
-          Hello there!
+      <div className="-mt-20">
+        <p className="text-white text-8xl font-anton p-24 -mt-10 font-semibold tracking-wider">
+          Hello!{" "}
+          <p className="text-white text-7xl font-anton inline-block font-medium tracking-wide">
+            My name is
+          </p>{" "}
+          <p className="text-white text-9xl mt-3 font-semibold tracking-wider">
+            Giannis Theo
+          </p>
+          <p className="text-white text-6xl mt-3 font-medium tracking-wider">
+            and I'm a front-end developer.
+          </p>
         </p>
       </div>
       <div className="absolute top-[100px] right-[920px] scale-125">
@@ -129,130 +148,115 @@ function Main({ scrollToComponent }) {
           }}
         ></motion.button>
       </div>
-      {isOpen1 && isClicked1 && (
-        <AnimatePresence>
-          <motion.div
-            key="first-snippet"
-            className="invisible absolute top-[500px] left-[-30px]" //first code snippet
+      <div className="flex space-x-4">
+        {isOpen1 && isClicked1 && (
+          <AnimatePresence>
+            <motion.div
+              key="first-snippet"
+              className="invisible" //first code snippet
+            >
+              <motion.div
+                className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[560px] max-h-[400px] m-16 rounded-md`}
+                variants={textVariants}
+                initial="initial"
+                animate="animate"
+                style={{ visibility: isClicked1 ? "visible" : "" }}
+              >
+                <motion.p
+                  className="text-white font-semibold ml-2 text-center text-4xl mt-3"
+                  variants={textVariants}
+                >
+                  Skills
+                </motion.p>
+                <div className="text-justify break-all flex mt-5">
+                  <p className="text-white font-bold p-1 text-left text-2xl leading-relaxed break-words overflow-wrap-break-word">
+                    I am a passionate developer with expertise in React,
+                    JavaScript, Tailwind, HTML, and CSS, focused on crafting
+                    modern, responsive web applications. Skilled in transforming
+                    designs into dynamic, user-friendly interfaces through
+                    clean, efficient code.
+                  </p>
+                </div>
+                <motion.div className="text-center">
+                  <ReactTyped
+                    className="text-white font-bold mt-12 text-2xl"
+                    strings={[
+                      "I am reliable",
+                      "I am organized",
+                      "I am flexible",
+                      "I am fast-paced",
+                    ]}
+                    typeSpeed={200}
+                    backSpeed={100}
+                    loop
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
+        )}
+        {isOpen2 && (
+          <div
+            className="invisible" //second code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[700px] h-[400px] m-16 rounded-md`}
+              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[560px] max-h-[400px] m-16 rounded-md 
+                ${isOpen2 ? "" : "hidden"}`}
               variants={textVariants}
               initial="initial"
               animate="animate"
-              style={{ visibility: isClicked1 ? "visible" : "" }}
+              style={{ visibility: isClicked2 ? "visible" : "" }}
             >
               <motion.p
-                className="text-white font-semibold ml-2 text-center text-4xl mt-2"
+                className="text-white font-semibold ml-2 text-center text-4xl mt-3"
                 variants={textVariants}
               >
-                Skills
+                Who I am
               </motion.p>
+
               <div className="text-justify break-all flex mt-5">
-                <p className="text-white font-bold p-1 text-left text-xl leading-relaxed">
-                  I am a passionate developer with expertise in React,
-                  JavaScript,
-                  <br></br>Tailwind, HTML, and CSS, focused on crafting modern,
-                  responsive web applications. Skilled in transforming designs
-                  into dynamic, <br></br> user-friendly interfaces through
-                  clean, efficient code. Also, i have <br></br> deleloped a
-                  strong grasp of component-based development and <br></br>
-                  streamlined styling techniques. Continuously learning and
-                  adapting to emerging trends, bringing innovative solutions to
-                  both team <br></br>
-                  collaborations and individual challenges.
+                <p className="text-white font-bold p-2 text-left text-2xl leading-relaxed break-words overflow-wrap-break-word">
+                  I'm a 21 year-old optimistic individual with a passion for
+                  programming. I'm a bit of a tech enthusiast, always online
+                  checking the latest coding news. But at the end of the day,
+                  I'm just a person who loves learning, growing, and connecting
+                  with others.
                 </p>
               </div>
-              <motion.div className="text-center">
-                <ReactTyped
-                  className="text-white font-bold justify-center absolute top-[350px] right-[305px] text-2xl"
-                  strings={[
-                    "I am reliable",
-                    "I am organized",
-                    "I am flexible",
-                    "I am fast-paced",
-                  ]}
-                  typeSpeed={200}
-                  backSpeed={100}
-                  loop
-                />
-              </motion.div>
             </motion.div>
-          </motion.div>
-        </AnimatePresence>
-      )}
-      {isOpen2 && (
-        <div
-          className="invisible absolute top-[500px] left-[800px]" //second code snippet
-        >
-          <motion.div
-            className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[700px] h-[400px] m-16 rounded-md 
-                ${isOpen2 ? "" : "hidden"}`}
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            style={{ visibility: isClicked2 ? "visible" : "" }}
+          </div>
+        )}
+        {isOpen3 && (
+          <div
+            className="invisible" //third code snippet
           >
-            <motion.p
-              className="text-white font-semibold ml-2 text-center text-4xl mt-2"
-              variants={textVariants}
-            >
-              Who I am
-            </motion.p>
-
-            <div className="text-justify break-all flex mt-5">
-              <p className="text-white font-bold p-1 text-left text-xl leading-relaxed">
-                Hi there! I'm a curious and creative individual with a passion
-                for<br></br>innovation and problem-solving. When I'm not working
-                on my latest<br></br>project, you can find me exploring new
-                hiking trails, trying out new<br></br>recipes in the kitchen, or
-                curled up with a good book. I'm a bit of a tech enthusiast,
-                always on the lookout for the latest gadgets and trends. But at
-                the end of the day, I'm just a person who loves learning,
-                growing,<br></br>and connecting with others. I'm excited to
-                share my journey with you<br></br>and see where it takes us
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      )}
-      {isOpen3 && (
-        <div
-          className="invisible absolute top-[40px] left-[800px]" //third code snippet
-        >
-          <motion.div
-            className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[705px] h-[400px] m-16 rounded-md 
+            <motion.div
+              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[560px] max-h-[400px] m-16 rounded-md 
               ${isOpen3 ? "" : "hidden"}`}
-            variants={textVariants}
-            initial="initial"
-            animate="animate"
-            style={{ visibility: isClicked3 ? "visible" : "" }}
-          >
-            <motion.p
-              className="text-white font-semibold ml-2 text-center text-4xl mt-2"
               variants={textVariants}
+              initial="initial"
+              animate="animate"
+              style={{ visibility: isClicked3 ? "visible" : "" }}
             >
-              Certificates
-            </motion.p>
+              <motion.p
+                className="text-white font-semibold ml-2 text-center text-4xl mt-3"
+                variants={textVariants}
+              >
+                Certificates
+              </motion.p>
 
-            <div className="text-justify break-all flex mt-5">
-              <p className="text-white font-bold p-1 text-left text-xl leading-relaxed">
-                I'm proud to showcase my certifications in various fields,
-                demonstrating my expertise and commitment to staying up-to-date
-                with the latest<br></br> industry trends. With certifications in
-                digital marketing, web <br></br>development, data science, and
-                cyber security, I possess a unique <br></br>combination of
-                skills that enable me to approach problems from<br></br>{" "}
-                multiple angles. Whether it's analyzing data to inform marketing
-                <br></br>
-                strategies, building scalable web applications, or protecting
-                sensitive<br></br> information from cyber threats, I'm confident
-                in my ability to deliver <br></br>high-quality results.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      )}
+              <div className="text-justify break-all flex mt-5">
+                <p className="text-white font-bold p-3 text-left text-2xl leading-relaxed break-words overflow-wrap-break-word">
+                  I'm proud to showcase my certifications in various fields.
+                  With certifications in web development, data science, and
+                  cyber security, I possess a unique combination of skills that
+                  enable me to approach problems from multiple angles.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

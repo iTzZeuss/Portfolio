@@ -20,6 +20,11 @@
   }
 }
 
+.overflow-wrap-break-word {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 body {
   @apply bg-bg2 max-w-full h-full bg-cover bg-no-repeat;
 }

@@ -119,53 +119,59 @@ function Projects() {
           )}
         </div>
       )}
+      <div>
+        {/* Main Content */}
+        <div className="bg-gray-900 w-full h-[900px] grid justify-items-center content-center gap-3 overflow-hidden">
+          {/* Previous Button */}
+          <p
+            className="text-white font-semibold text-md absolute top-[247px] left-[615px]"
+            style={{ opacity: isHovered1 ? 1 : 0 }}
+          >
+            Previous
+          </p>
+          <div
+            className="bg-[url('./left.png')] w-16 h-16 bg-cover cursor-pointer absolute top-[270px] left-[615px]"
+            onMouseEnter={() => setIsHovered1(true)}
+            onMouseLeave={() => setIsHovered1(false)}
+            onClick={handlePrevious}
+          ></div>
 
-      {/* Main Content */}
-      <div className="bg-gray-900 w-full h-[900px] grid justify-items-center content-center gap-3 overflow-hidden">
-        {/* Previous Button */}
-        <p
-          className="text-white font-semibold text-md absolute top-[247px] left-[615px]"
-          style={{ opacity: isHovered1 ? 1 : 0 }}
-        >
-          Previous
-        </p>
-        <div
-          className="bg-[url('./left.png')] w-16 h-16 bg-cover cursor-pointer absolute top-[270px] left-[615px]"
-          onMouseEnter={() => setIsHovered1(true)}
-          onMouseLeave={() => setIsHovered1(false)}
-          onClick={handlePrevious}
-        ></div>
+          {/* Project Image */}
+          <p
+            className="text-white font-semibold text-lg absolute top-[140px]"
+            style={{ opacity: isHovered2 ? 1 : 0 }}
+          >
+            {images[currentImage].includes("weather") && "Weather App"}
+            {images[currentImage].includes("todoApp") && "Todo App"}
+            {images[currentImage].includes("tictac") && "Tic Tac Toe"}
+          </p>
+          <motion.div
+            key={currentImage}
+            className="w-[520px] h-[260px] bg-cover cursor-pointer top-[170px] absolute hover:brightness-75 rounded-md"
+            style={{ backgroundImage: `url(${images[currentImage]})` }}
+            onMouseEnter={() => setIsHovered2(true)}
+            onMouseLeave={() => setIsHovered2(false)}
+            onClick={handleProjectClick}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          ></motion.div>
 
-        {/* Project Image */}
-        <p
-          className="text-white font-semibold text-lg absolute top-[140px]"
-          style={{ opacity: isHovered2 ? 1 : 0 }}
-        >
-          {images[currentImage].includes("weather") && "Weather App"}
-          {images[currentImage].includes("todoApp") && "Todo App"}
-          {images[currentImage].includes("tictac") && "Tic Tac Toe"}
-        </p>
-        <div
-          style={{ backgroundImage: `url(${images[currentImage]})` }}
-          className="w-[520px] h-[260px] bg-cover cursor-pointer top-[170px] absolute hover:brightness-75 rounded-md"
-          onMouseEnter={() => setIsHovered2(true)}
-          onMouseLeave={() => setIsHovered2(false)}
-          onClick={handleProjectClick} // Show overlay on click
-        ></div>
-
-        {/* Next Button */}
-        <p
-          className="text-white font-semibold text-md absolute top-[247px] left-[1240px]"
-          style={{ opacity: isHovered3 ? 1 : 0 }}
-        >
-          Next
-        </p>
-        <div
-          className="bg-[url('./right.png')] w-16 h-16 bg-cover cursor-pointer absolute top-[270px] left-[1225px]"
-          onMouseEnter={() => setIsHovered3(true)}
-          onMouseLeave={() => setIsHovered3(false)}
-          onClick={handleNext}
-        ></div>
+          {/* Next Button */}
+          <p
+            className="text-white font-semibold text-md"
+            style={{ opacity: isHovered3 ? 1 : 0 }}
+          >
+            Next
+          </p>
+          <div
+            className="bg-[url('./right.png')] w-16 h-16 bg-cover cursor-pointer"
+            onMouseEnter={() => setIsHovered3(true)}
+            onMouseLeave={() => setIsHovered3(false)}
+            onClick={handleNext}
+          ></div>
+        </div>
 
         {/* Pause Animation */}
         <p
