@@ -30,9 +30,7 @@ function Main({ scrollToComponent }) {
   const [isOpen1, setIsOpen1] = useState(true);
   const [isOpen2, setIsOpen2] = useState(true);
   const [isOpen3, setIsOpen3] = useState(true);
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
+  const [hoveredElement, setHoveredElement] = useState(null);
   const [isClicked1, setIsClicked1] = useState(false);
   const [isClicked2, setIsClicked2] = useState(false);
   const [isClicked3, setIsClicked3] = useState(false);
@@ -83,20 +81,21 @@ function Main({ scrollToComponent }) {
       </div>
       <div className="absolute top-[100px] right-[920px] scale-125">
         <motion.h1 //first button text
-          className={`text-white text-3xl font-bold absolute top-[85px] left-[141px]`}
-          style={{ opacity: isHovered1 ? 1 : 0 }}
+          className={`text-white text-3xl font-bold absolute top-[87px] left-[140px] ${
+            hoveredElement === "skills" ? "opacity-100" : "opacity-0"
+          } transition-opacity`}
         >
           Skills
         </motion.h1>
         <motion.button //first button
           className={`bg-[url('./coder.png')] bg-cover w-[80px] h-[80px]
-        hover:bg-[url('./coderAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[150px]`}
+        hover:bg-[url('./coderAnim.gif')] hover:scale-150 transition-transform absolute top-[128px] left-[150px]`}
           variants={textVariants}
           onMouseEnter={() => {
-            setIsHovered1(true);
+            setHoveredElement("skills");
           }}
           onMouseOut={() => {
-            setIsHovered1(false);
+            setHoveredElement(null);
           }}
           onClick={() => {
             setIsOpen1(!isOpen1);
@@ -105,20 +104,21 @@ function Main({ scrollToComponent }) {
         ></motion.button>
 
         <motion.h1 //second button text
-          className={`text-white text-3xl font-bold absolute top-[102px] left-[330px]`}
-          style={{ opacity: isHovered2 ? 1 : 0 }}
+          className={`text-white text-3xl font-bold absolute top-[102px] left-[330px] ${
+            hoveredElement === "about" ? "opacity-100" : "opacity-0"
+          } transition-opacity`}
         >
           About
         </motion.h1>
         <motion.button //second button
           className={`bg-[url('./laptop.png')] bg-cover w-[80px] h-[80px]
-          hover:bg-[url('./laptopAnim.gif')] hover:scale-[1.5] absolute top-[128px] left-[370px]`}
+          hover:bg-[url('./laptopAnim.gif')] hover:scale-150 transition-transform absolute top-[128px] left-[370px]`}
           variants={textVariants}
           onMouseEnter={() => {
-            setIsHovered2(true);
+            setHoveredElement("about");
           }}
           onMouseOut={() => {
-            setIsHovered2(false);
+            setHoveredElement(null);
           }}
           onClick={() => {
             setIsOpen2(!isOpen2);
@@ -127,20 +127,21 @@ function Main({ scrollToComponent }) {
         ></motion.button>
 
         <motion.h1 //third button text
-          className={`text-white text-3xl font-bold absolute top-[90px] left-[569px]`}
-          style={{ opacity: isHovered3 ? 1 : 0 }}
+          className={`text-white text-3xl font-bold absolute top-[102px] left-[560px] ${
+            hoveredElement === "certificates" ? "opacity-100" : "opacity-0"
+          } transition-opacity`}
         >
           Certificates
         </motion.h1>
         <motion.button //third button
           className={`bg-[url('./skills.png')] bg-cover w-[80px] h-[80px]
-          hover:bg-[url('./skillsAnim.gif')] hover:scale-[1.5] absolute top-[140px] left-[610px]`}
+          hover:bg-[url('./skillsAnim.gif')] hover:scale-150 transition-transform absolute top-[140px] left-[610px]`}
           variants={textVariants}
           onMouseEnter={() => {
-            setIsHovered3(true);
+            setHoveredElement("certificates");
           }}
           onMouseOut={() => {
-            setIsHovered3(false);
+            setHoveredElement(null);
           }}
           onClick={() => {
             setIsOpen3(!isOpen3);
@@ -156,7 +157,7 @@ function Main({ scrollToComponent }) {
               className="invisible" //first code snippet
             >
               <motion.div
-                className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[560px] max-h-[400px] m-16 rounded-md`}
+                className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[500px] max-h-[340px] m-16 rounded-md`}
                 variants={textVariants}
                 initial="initial"
                 animate="animate"
@@ -169,7 +170,7 @@ function Main({ scrollToComponent }) {
                   Skills
                 </motion.p>
                 <div className="text-justify break-all flex mt-5">
-                  <p className="text-white font-bold p-1 text-left text-2xl leading-relaxed break-words overflow-wrap-break-word">
+                  <p className="text-white font-bold p-1 text-left text-xl leading-relaxed break-words overflow-wrap-break-word">
                     I am a passionate developer with expertise in React,
                     JavaScript, Tailwind, HTML, and CSS, focused on crafting
                     modern, responsive web applications. Skilled in transforming
@@ -200,7 +201,7 @@ function Main({ scrollToComponent }) {
             className="invisible" //second code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[560px] max-h-[400px] m-16 rounded-md 
+              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[500px] max-h-[340px] m-16 rounded-md 
                 ${isOpen2 ? "" : "hidden"}`}
               variants={textVariants}
               initial="initial"
@@ -215,7 +216,7 @@ function Main({ scrollToComponent }) {
               </motion.p>
 
               <div className="text-justify break-all flex mt-5">
-                <p className="text-white font-bold p-2 text-left text-2xl leading-relaxed break-words overflow-wrap-break-word">
+                <p className="text-white font-bold p-2 text-left text-xl leading-relaxed break-words overflow-wrap-break-word">
                   I'm a 21 year-old optimistic individual with a passion for
                   programming. I'm a bit of a tech enthusiast, always online
                   checking the latest coding news. But at the end of the day,
@@ -231,7 +232,7 @@ function Main({ scrollToComponent }) {
             className="invisible" //third code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[560px] max-h-[400px] m-16 rounded-md 
+              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[480px] max-h-[340px] m-16 rounded-md 
               ${isOpen3 ? "" : "hidden"}`}
               variants={textVariants}
               initial="initial"
@@ -246,7 +247,7 @@ function Main({ scrollToComponent }) {
               </motion.p>
 
               <div className="text-justify break-all flex mt-5">
-                <p className="text-white font-bold p-3 text-left text-2xl leading-relaxed break-words overflow-wrap-break-word">
+                <p className="text-white font-bold p-3 text-left text-xl leading-relaxed break-words overflow-wrap-break-word">
                   I'm proud to showcase my certifications in various fields.
                   With certifications in web development, data science, and
                   cyber security, I possess a unique combination of skills that

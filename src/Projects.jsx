@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 
 function Projects() {
   const [anim, setAnim] = useState(true);
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
+  const [hoveredElement, setHoveredElement] = useState(null);
   const [isHovered4, setIsHovered4] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isOverlayVisible, setIsOverlayVisible] = useState(false); // Overlay state
@@ -37,7 +35,7 @@ function Projects() {
   };
 
   return (
-    <div className="relative top-[950px] overflow-hidden">
+    <div className="relative top-[850px] overflow-hidden">
       {/* Overlay */}
       {isOverlayVisible && (
         <div
@@ -119,27 +117,31 @@ function Projects() {
           )}
         </div>
       )}
-      <div>
-        {/* Main Content */}
-        <div className="bg-gray-900 w-full h-[900px] grid justify-items-center content-center gap-3 overflow-hidden">
-          {/* Previous Button */}
+      <div className="bg-gray-900 w-full h-[900px] flex justify-center items-center gap-6 overflow-hidden relative">
+        {/* Previous Button */}
+        <div className="relative flex flex-col items-center">
           <p
-            className="text-white font-semibold text-md absolute top-[247px] left-[615px]"
-            style={{ opacity: isHovered1 ? 1 : 0 }}
+            className={`text-white font-semibold text-md mb-2 ${
+              hoveredElement === "previous" ? "opacity-100" : "opacity-0"
+            } transition-opacity`}
           >
             Previous
           </p>
-          <div
-            className="bg-[url('./left.png')] w-16 h-16 bg-cover cursor-pointer absolute top-[270px] left-[615px]"
-            onMouseEnter={() => setIsHovered1(true)}
-            onMouseLeave={() => setIsHovered1(false)}
+          <button
+            className="bg-[url('./left.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            aria-label="Previous Project"
+            onMouseEnter={() => setHoveredElement("previous")}
+            onMouseLeave={() => setHoveredElement(null)}
             onClick={handlePrevious}
-          ></div>
+          ></button>
+        </div>
 
-          {/* Project Image */}
+        {/* Project Image */}
+        <div className="relative">
           <p
-            className="text-white font-semibold text-lg absolute top-[140px]"
-            style={{ opacity: isHovered2 ? 1 : 0 }}
+            className={`text-white font-semibold text-lg absolute -top-8 left-1/2 -translate-x-1/2 ${
+              hoveredElement === "project" ? "opacity-100" : "opacity-0"
+            } transition-opacity`}
           >
             {images[currentImage].includes("weather") && "Weather App"}
             {images[currentImage].includes("todoApp") && "Todo App"}
@@ -147,69 +149,79 @@ function Projects() {
           </p>
           <motion.div
             key={currentImage}
-            className="w-[520px] h-[260px] bg-cover cursor-pointer top-[170px] absolute hover:brightness-75 rounded-md"
+            className="w-[520px] h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-md transition-transform"
             style={{ backgroundImage: `url(${images[currentImage]})` }}
-            onMouseEnter={() => setIsHovered2(true)}
-            onMouseLeave={() => setIsHovered2(false)}
+            onMouseEnter={() => setHoveredElement("project")}
+            onMouseLeave={() => setHoveredElement(null)}
             onClick={handleProjectClick}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-          ></motion.div>
+          >
+            <img
+              src={images[currentImage]}
+              alt="Project preview"
+              className="sr-only"
+            />
+          </motion.div>
+        </div>
 
-          {/* Next Button */}
+        {/* Next Button */}
+        <div className="relative flex flex-col items-center">
           <p
-            className="text-white font-semibold text-md"
-            style={{ opacity: isHovered3 ? 1 : 0 }}
+            className={`text-white font-semibold text-md mb-2 ${
+              hoveredElement === "next" ? "opacity-100" : "opacity-0"
+            } transition-opacity`}
           >
             Next
           </p>
-          <div
-            className="bg-[url('./right.png')] w-16 h-16 bg-cover cursor-pointer"
-            onMouseEnter={() => setIsHovered3(true)}
-            onMouseLeave={() => setIsHovered3(false)}
+          <button
+            className="bg-[url('./right.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            aria-label="Next Project"
+            onMouseEnter={() => setHoveredElement("next")}
+            onMouseLeave={() => setHoveredElement(null)}
             onClick={handleNext}
-          ></div>
+          ></button>
         </div>
-
-        {/* Pause Animation */}
-        <p
-          className="absolute left-[1718px] top-[565px] text-white font-semibold"
-          style={{ opacity: isHovered4 ? 1 : 0 }}
-        >
-          Pause Animation
-        </p>
-        <div
-          className="bg-[url('./pause.png')] w-16 h-16 bg-cover cursor-pointer absolute left-[1740px] top-[590px] hover:w-20 hover:h-20"
-          onMouseEnter={() => setIsHovered4(true)}
-          onMouseLeave={() => setIsHovered4(false)}
-          onClick={() => setAnim(!anim)}
-        ></div>
-
-        {/* Text Animations */}
-        <motion.p className="font-calli text-6xl text-white absolute top-[590px] left-[405px]">
-          Self-discipline will get you farther than motivation ever will.
-        </motion.p>
-        <motion.p
-          className="w-full font-bold text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
-          variants={{
-            initial: { x: -1100 },
-            animate: {
-              x: "10vw",
-              transition: {
-                repeat: Infinity,
-                repeatType: "mirror",
-                duration: 7,
-              },
-            },
-          }}
-          initial="initial"
-          animate={anim ? "animate" : ""}
-        >
-          John Doe Programmer Experienced Professional Animator Designer
-        </motion.p>
       </div>
+
+      {/* Pause Animation */}
+      <p
+        className="absolute left-[1715px] top-[565px] text-white font-semibold"
+        style={{ opacity: isHovered4 ? 1 : 0 }}
+      >
+        Pause Animation
+      </p>
+      <div
+        className="bg-[url('./pause.png')] w-16 h-16 bg-cover cursor-pointer absolute left-[1740px] top-[590px] hover:scale-110 transition-transform"
+        onMouseEnter={() => setIsHovered4(true)}
+        onMouseLeave={() => setIsHovered4(false)}
+        onClick={() => setAnim(!anim)}
+      ></div>
+
+      {/* Text Animations */}
+      <motion.p className="font-calli text-6xl text-white absolute top-[590px] left-[405px]">
+        Self-discipline will get you farther than motivation ever will.
+      </motion.p>
+      <motion.p
+        className="w-full font-bold text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
+        variants={{
+          initial: { x: -1100 },
+          animate: {
+            x: "10vw",
+            transition: {
+              repeat: Infinity,
+              repeatType: "mirror",
+              duration: 7,
+            },
+          },
+        }}
+        initial="initial"
+        animate={anim ? "animate" : ""}
+      >
+        John Doe Programmer Experienced Professional Animator Designer
+      </motion.p>
     </div>
   );
 }

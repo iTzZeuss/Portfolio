@@ -4,6 +4,13 @@ import { useState } from "react";
 function Team({ scrollToComponent }) {
   const [isClicked, setIsClicked] = useState(false);
 
+  const scrollToPosition = (position) => {
+    window.scrollTo({
+      top: position, // Scroll to this vertical position
+      behavior: "smooth", // Smooth scroll
+    });
+  };
+
   return (
     <div>
       <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center absolute top-[1900px] overflow-hidden leading-relaxed">
@@ -106,7 +113,7 @@ function Team({ scrollToComponent }) {
             &copy;{new Date().getFullYear()} John Doe | All Rights Reserved.
             Icons by Flaticon.
           </p>
-          <div onClick={() => scrollToComponent(0)}>
+          <div onClick={() => scrollToPosition(0)}>
             <p className="text-white font-semibold text-2xl p-5 absolute right-10 top-0 cursor-pointer">
               BACK TO TOP{" "}
               <div className="bg-[url('./arrowUp.png')] bg-cover bg-no-repeat w-[30px] h-[15px] inline-block cursor-pointer"></div>
