@@ -88,8 +88,8 @@ function Main({ scrollToComponent }) {
           Skills
         </motion.h1>
         <motion.button //first button
-          className={`bg-[url('./coder.png')] bg-cover w-[80px] h-[80px]
-        hover:bg-[url('./coderAnim.gif')] hover:scale-150 transition-transform absolute top-[128px] left-[150px]`}
+          className={`bg-[url('./pics/coder.png')] bg-cover w-[80px] h-[80px]
+        hover:bg-[url('./gif/coderAnim.gif')] hover:scale-150 transition-transform absolute top-[128px] left-[150px]`}
           variants={textVariants}
           onMouseEnter={() => {
             setHoveredElement("skills");
@@ -111,8 +111,8 @@ function Main({ scrollToComponent }) {
           About
         </motion.h1>
         <motion.button //second button
-          className={`bg-[url('./laptop.png')] bg-cover w-[80px] h-[80px]
-          hover:bg-[url('./laptopAnim.gif')] hover:scale-150 transition-transform absolute top-[128px] left-[370px]`}
+          className={`bg-[url('./pics/laptop.png')] bg-cover w-[80px] h-[80px]
+          hover:bg-[url('./gif/laptopAnim.gif')] hover:scale-150 transition-transform absolute top-[128px] left-[370px]`}
           variants={textVariants}
           onMouseEnter={() => {
             setHoveredElement("about");
@@ -134,8 +134,8 @@ function Main({ scrollToComponent }) {
           Certificates
         </motion.h1>
         <motion.button //third button
-          className={`bg-[url('./skills.png')] bg-cover w-[80px] h-[80px]
-          hover:bg-[url('./skillsAnim.gif')] hover:scale-150 transition-transform absolute top-[140px] left-[610px]`}
+          className={`bg-[url('./pics/skills.png')] bg-cover w-[80px] h-[80px]
+          hover:bg-[url('./gif/skillsAnim.gif')] hover:scale-150 transition-transform absolute top-[140px] left-[610px]`}
           variants={textVariants}
           onMouseEnter={() => {
             setHoveredElement("certificates");
@@ -157,7 +157,7 @@ function Main({ scrollToComponent }) {
               className="invisible" //first code snippet
             >
               <motion.div
-                className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[500px] max-h-[340px] m-16 rounded-md`}
+                className={`relative px-2 py-1 bg-[url('./pics/sampleSnip.png')] max-w-[500px] max-h-[340px] m-16 rounded-md`}
                 variants={textVariants}
                 initial="initial"
                 animate="animate"
@@ -201,7 +201,7 @@ function Main({ scrollToComponent }) {
             className="invisible" //second code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[500px] max-h-[340px] m-16 rounded-md 
+              className={`relative px-2 py-1 bg-[url('./pics/sampleSnip.png')] max-w-[500px] max-h-[340px] m-16 rounded-md 
                 ${isOpen2 ? "" : "hidden"}`}
               variants={textVariants}
               initial="initial"
@@ -232,7 +232,7 @@ function Main({ scrollToComponent }) {
             className="invisible" //third code snippet
           >
             <motion.div
-              className={`relative px-2 py-1 bg-[url('./sampleSnip.png')] max-w-[480px] max-h-[340px] m-16 rounded-md 
+              className={`relative px-2 py-1 bg-[url('./pics/sampleSnip.png')] max-w-[480px] max-h-[340px] m-16 rounded-md 
               ${isOpen3 ? "" : "hidden"}`}
               variants={textVariants}
               initial="initial"

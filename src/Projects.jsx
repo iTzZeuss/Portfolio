@@ -9,9 +9,9 @@ function Projects() {
   const [isOverlayVisible, setIsOverlayVisible] = useState(false); // Overlay state
 
   const images = [
-    require("./weather.png"),
-    require("./todoApp.jpg"),
-    require("./tictac.gif"),
+    require("./pics/weather.png"),
+    require("./pics/todoApp.jpg"),
+    require("./gif/tictac.gif"),
   ];
 
   const handleProjectClick = () => {
@@ -48,7 +48,7 @@ function Projects() {
                 Click anywhere to dismiss
               </p>
               <div className="rounded-2xl w-[800px] h-[480px] bg-blue-950">
-                <div className="bg-[url(./weather.png)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-xl shadow-2xl"></div>
+                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-xl shadow-2xl"></div>
                 <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
                   <br></br>Weather App Project <br></br> Created in 2022{" "}
                   <br></br> Built with React
@@ -71,7 +71,7 @@ function Projects() {
                 Click anywhere to dismiss
               </p>
               <div className="rounded-2xl w-[800px] h-[480px] bg-blue-950">
-                <div className="bg-[url(./todoApp.jpg)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-3xl shadow-2xl"></div>
+                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-3xl shadow-2xl"></div>
                 <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
                   <br></br>To-Do List App Project <br></br> Developed in 2023{" "}
                   <br></br>
@@ -97,7 +97,7 @@ function Projects() {
                 Click anywhere to dismiss
               </p>
               <div className="rounded-2xl w-[800px] h-[470px] bg-blue-950 shadow-lg">
-                <div className="bg-[url(./tictac.gif)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute mt-5 shadow-2xl"></div>
+                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute mt-5 shadow-2xl"></div>
                 <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
                   <br></br>TicTacToe App Project <br></br> Developed and
                   finished in 2024 <br></br> Built with React <br></br> (again)
@@ -128,7 +128,7 @@ function Projects() {
             Previous
           </p>
           <button
-            className="bg-[url('./left.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            className="bg-[url('./pics/left.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
             aria-label="Previous Project"
             onMouseEnter={() => setHoveredElement("previous")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -177,7 +177,7 @@ function Projects() {
             Next
           </p>
           <button
-            className="bg-[url('./right.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            className="bg-[url('./pics/right.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
             aria-label="Next Project"
             onMouseEnter={() => setHoveredElement("next")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -187,18 +187,21 @@ function Projects() {
       </div>
 
       {/* Pause Animation */}
-      <p
-        className="absolute left-[1715px] top-[565px] text-white font-semibold"
-        style={{ opacity: isHovered4 ? 1 : 0 }}
-      >
-        Pause Animation
-      </p>
-      <div
-        className="bg-[url('./pause.png')] w-16 h-16 bg-cover cursor-pointer absolute left-[1740px] top-[590px] hover:scale-110 transition-transform"
-        onMouseEnter={() => setIsHovered4(true)}
-        onMouseLeave={() => setIsHovered4(false)}
-        onClick={() => setAnim(!anim)}
-      ></div>
+      <div className="flex flex-col items-center absolute top-[68%] right-[5%] transform -translate-y-1/2 md:right-[8%] sm:right-[10%]">
+        <p
+          className={`text-white font-semibold mb-2 transition-opacity ${
+            isHovered4 ? "opacity-100" : "opacity-0"
+          } text-lg sm:text-sm`}
+        >
+          Pause Animation
+        </p>
+        <div
+          className="bg-[url('./pics/pause.png')] w-16 h-16 bg-cover cursor-pointer hover:scale-110 transition-transform sm:w-12 sm:h-12"
+          onMouseEnter={() => setIsHovered4(true)}
+          onMouseLeave={() => setIsHovered4(false)}
+          onClick={() => setAnim(!anim)}
+        ></div>
+      </div>
 
       {/* Text Animations */}
       <motion.p className="font-calli text-6xl text-white absolute top-[590px] left-[405px]">

@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import Projects from "./Projects.jsx";
-import Header from "./Header.jsx";
 import Main from "./Main.jsx";
 import Team from "./Team.jsx";
 
