@@ -9,7 +9,6 @@ module.exports = {
         anton: ["Anton"],
       },
       backgroundImage: {
-        bg1: "url('./pics/backgroundSample1.jpg')",
         bg2: "url('./pics/backgroundSample3.png')",
       },
     },

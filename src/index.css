@@ -26,7 +26,7 @@
 }
 
 body {
-  @apply bg-bg2 max-w-full h-full bg-cover bg-no-repeat;
+  @apply bg-[url('./pics/backgroundSample3.png')] max-w-full h-full bg-cover bg-no-repeat;
 }
 
 /* Global dark scrollbar styling */
