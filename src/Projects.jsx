@@ -35,7 +35,7 @@ function Projects() {
   };
 
   return (
-    <div className="relative top-[850px] overflow-hidden">
+    <div className="relative top-[1207px] overflow-hidden">
       {/* Overlay */}
       {isOverlayVisible && (
         <div

@@ -13,7 +13,7 @@ function Team({ scrollToComponent }) {
 
   return (
     <div>
-      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center absolute top-[1900px] overflow-hidden leading-relaxed">
+      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center absolute top-[2297px] overflow-hidden leading-relaxed">
         <p className="text-gray-400 font-bold text-4xl m-24">
           A few words about our team
         </p>
@@ -125,7 +125,7 @@ function Team({ scrollToComponent }) {
         {/* Footer */}
         <div className="w-full bg-gray-800 py-6 text-center relative">
           <p className="text-gray-400 font-semibold text-base">
-            &copy;{new Date().getFullYear()} John Doe | All Rights Reserved.
+            &copy;{new Date().getFullYear()} John Theo | All Rights Reserved.
             Icons by Flaticon.
           </p>
 
