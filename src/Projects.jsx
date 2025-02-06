@@ -60,11 +60,11 @@ function Projects() {
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl w-[800px] h-[480px] bg-blue-950 mt-16"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[650px] h-[500px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat w-[380px] h-[185px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
+                <p className="text-white font-semibold text-2xl md:text-3xl left-56 ml-[400px] text-center">
                   <br></br>Weather App Project <br></br> Created in 2022{" "}
                   <br></br> Built with React
                 </p>
@@ -82,20 +82,20 @@ function Projects() {
           )}
           {currentImage == 1 && (
             <motion.div
-              className=" justify-center"
+              className="justify-center text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white absolute right-[825px] top-[100px]">
+              <p className="text-2xl text-white -mt-24">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl w-[800px] h-[480px] bg-blue-950"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[650px] h-[530px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-3xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
+                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat w-[380px] h-[216px] m-2 absolute rounded-3xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-2xl md:text-3xl left-56 ml-[400px] text-center">
                   <br></br>To-Do List App Project <br></br> Developed in 2023{" "}
                   <br></br>
                   Finished in 2024 <br></br> Built with React
@@ -116,20 +116,20 @@ function Projects() {
           )}
           {currentImage == 2 && (
             <motion.div
-              className=" justify-center"
+              className="justify-center text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white absolute right-[825px] top-[100px]">
+              <p className="text-2xl text-white -mt-24">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl w-[800px] h-[470px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[650px] h-[530px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat w-[380px] h-[183px] m-2 absolute mt-5 shadow-2xl rounded-md"></div>
-                <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
+                <p className="text-white font-semibold text-2xl md:text-3xl left-56 ml-[400px] text-center">
                   <br></br>TicTacToe App Project <br></br> Developed and
                   finished in 2024 <br></br> Built with React <br></br> (again)
                 </p>
@@ -148,7 +148,7 @@ function Projects() {
           )}
         </motion.div>
       )}
-      <div className="bg-gray-900 w-full h-[900px] flex justify-center items-center gap-6 overflow-hidden relative">
+      <div className="bg-gray-900 w-full h-[700px] flex justify-center items-center gap-6 overflow-hidden relative">
         {/* Previous Button */}
         <div className="relative flex flex-col items-center">
           <p
@@ -237,11 +237,8 @@ function Projects() {
       </div>
 
       {/* Text Animations */}
-      <motion.p className="font-calli text-6xl text-white absolute top-[590px] left-[405px]">
-        Self-discipline will get you farther than motivation ever will.
-      </motion.p>
       <motion.p
-        className="w-full font-bold text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
+        className="w-full font-bold text-5xl md:text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
         variants={{
           initial: { x: -1100 },
           animate: {

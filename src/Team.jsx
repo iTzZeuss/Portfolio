@@ -13,11 +13,11 @@ function Team({ scrollToComponent }) {
 
   return (
     <div>
-      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center relative w-full overflow-hidden leading-relaxed">
-        <p className="text-gray-400 font-bold text-4xl m-24">
+      <div className="bg-[rgba(7,5,8,255)] min-w-full min-h-screen text-center relative w-full overflow-hidden leading-relaxed">
+        <p className="text-gray-400 font-bold text-4xl m-24 mt-10">
           A few words about our team
         </p>
-        <p className="text-gray-400 font-bold text-3xl m-24">
+        <p className="text-gray-400 font-bold text-xl md:text-3xl m-24">
           Our team is a dynamic group of passionate individuals united by our
           love for innovation and technology. Comprising developers, designers,
           and strategists, we bring a diverse range of skills and perspectives
@@ -28,24 +28,22 @@ function Team({ scrollToComponent }) {
           on pushing boundaries and exceeding expectations. Each member of the
           team is committed to continuous learning, embracing new technologies,
           and staying ahead of industry trends to deliver cutting-edge
-          solutions. Together, we take pride in building projects that are not
-          only functional but also visually engaging and meaningful. Fueled by
-          our shared vision and determination, we are excited to create
-          impactful digital experiences that resonate with users and stand the
-          test of time.
+          solutions.
         </p>
-        <p className="text-gray-400 font-bold text-4xl m-24">
+        <p className="text-gray-400 font-bold text-3xl md:text-4xl m-24">
           A few words about this portfolio
         </p>
-        <p className="text-gray-400 font-bold text-3xl m-24">
+        <p className="text-gray-400 font-bold text-xl md:text-3xl m-24">
           {" "}
           This portfolio is a project i made to test my skills and give further
           information about what i can do in terms of programming. Feel free to
           contact me for any job or need using the details provided below.
         </p>
         <section className="py-12 bg-[rgba(7,5,8,255)] text-center">
-          <p className="text-gray-400 font-bold text-4xl mb-10">Contact Me</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-4">
+          <p className="text-gray-400 font-bold text-3xl md:text-4xl mb-5 -mt-16">
+            Contact Me
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mx-4">
             {/* Instagram */}
             <a
               href="https://www.instagram.com/_theodosiadiss_/"

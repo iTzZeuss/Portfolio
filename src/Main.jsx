@@ -16,7 +16,7 @@ function Main({ scrollToComponent }) {
       <div className="flex justify-end p-8 mr-40">
         <button
           className="text-4xl font-varela text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group mr-10"
-          onClick={() => scrollToPosition(1000)} // Scroll to Projects
+          onClick={() => scrollToPosition(1200)} // Scroll to Projects
         >
           <span className="relative">
             Projects
@@ -34,18 +34,18 @@ function Main({ scrollToComponent }) {
         </button>
       </div>
       <div className="justify-center text-center flex">
-        <p className="text-white text-8xl font-anton p-24 -mt-1 font-semibold tracking-wider">
+        <p className="text-white text-6xl md:text-8xl font-anton p-24 -mt-1 font-semibold tracking-wider">
           Hello!{" "}
-          <p className="text-white text-7xl font-anton inline-block font-medium tracking-wide">
+          <p className="text-white text-5xl md:text-7xl font-anton inline-block font-medium tracking-wide">
             My name is
           </p>{" "}
-          <p className="text-white text-9xl mt-3 font-semibold tracking-wider">
+          <p className="text-white text-7xl md:text-9xl mt-3 font-semibold tracking-wider">
             Giannis Theo
           </p>
-          <p className="text-white text-6xl mt-3 font-medium tracking-wider">
+          <p className="text-white text-4xl md:text-6xl mt-3 font-medium tracking-wider">
             and I'm a front-end developer.
           </p>{" "}
-          <p className="text-3xl sm:text-2xl font-semibold tracking-normal mt-16 font-sans">
+          <p className="text-xl sm:text-2xl font-semibold tracking-normal mt-16 font-sans">
             Lets take a look at various projects, skills and traits of my
             character that i have developed over time!
           </p>
