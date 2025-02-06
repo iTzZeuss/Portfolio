@@ -3,41 +3,18 @@ import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-const textVariants = {
-  initial: {
-    x: -100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-    },
-    exit: {
-      x: -100,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.1,
-      },
-    },
-  },
-};
-
 function About() {
   const [hoveredElement, setHoveredElement] = useState(null);
 
   return (
-    <div className="bg-[rgba(7,5,8,255)] h-[600px] text-center absolute top-[800px] leading-relaxed overflow-x-auto scrollbar-hide w-full p-4">
+    <div className="bg-[rgba(7,5,8,255)] h-[550px] text-center relative leading-relaxed overflow-x-auto scrollbar-hide w-full p-4">
       <motion.div
         className="flex"
-        //  animate={{ x: ["0%", "-100%"] }} // Moves left infinitely
-        //  transition={{ repeat: Infinity, duration: 60, ease: "linear" }} // Adjust speed
+        animate={{ x: ["100%", "0%"] }} // Moves left infinitely
+        transition={{ repeat: 0, duration: 20, ease: "linear" }} // Adjust speed
       >
         <motion.div
-          className={`relative px-2 py-1 min-w-[500px] w-[500px] max-h-[340px] m-16`}
+          className={`relative px-2 py-1 min-w-[600px] w-[500px] max-h-[340px] m-16`}
         >
           <motion.p className="text-white font-semibold ml-2 text-center text-4xl mt-3">
             Skills
@@ -67,7 +44,7 @@ function About() {
         </motion.div>
 
         <motion.div
-          className={`relative px-2 py-1 min-w-[500px] w-[500px] max-h-[340px] m-16
+          className={`relative px-2 py-1 min-w-[600px] w-[500px] max-h-[340px] m-16
          `}
         >
           <motion.p className="text-white font-semibold ml-2 text-center text-4xl mt-3">
@@ -83,7 +60,7 @@ function About() {
         </motion.div>
 
         <motion.div
-          className={`relative px-2 py-1 min-w-[500px] w-[500px] max-h-[340px] m-16
+          className={`relative px-2 py-1 min-w-[600px] w-[500px] max-h-[340px] m-16
               `}
         >
           <motion.p className="text-white font-semibold ml-2 text-center text-4xl mt-3">

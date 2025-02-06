@@ -11,7 +11,7 @@ function Main({ scrollToComponent }) {
   };
 
   return (
-    <div className="h-48">
+    <div className="relative w-full bg-bg2 bg-cover bg-center">
       {/* Navigation Links */}
       <div className="flex justify-end p-8 mr-40">
         <button

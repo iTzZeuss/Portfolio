@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { animate, motion } from "framer-motion";
 
 function Projects() {
   const [anim, setAnim] = useState(true);
@@ -17,11 +17,13 @@ function Projects() {
   const handleProjectClick = () => {
     setIsOverlayVisible(true);
     document.body.style.overflow = "hidden"; // Disable scrolling
+    document.body.style.paddingRight = "10px";
   };
 
   const handleOverlayClick = () => {
     setIsOverlayVisible(false);
-    document.body.style.overflow = ""; // Re-enable scrolling
+    document.body.style.overflow = "auto"; // Re-enable scrolling
+    document.body.style.paddingRight = "";
   };
 
   const handleNext = () => {
@@ -35,20 +37,33 @@ function Projects() {
   };
 
   return (
-    <div className="relative top-[1207px] overflow-hidden">
+    <div className="relative w-full">
       {/* Overlay */}
       {isOverlayVisible && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center "
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center overflow-y-auto p-4"
           onClick={handleOverlayClick}
         >
           {currentImage == 0 && (
-            <div className=" justify-center">
-              <p className="text-2xl text-white absolute right-[825px] top-[100px]">
+            <motion.div
+              className="justify-center text-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <p className="text-2xl text-white -mt-24">
                 Click anywhere to dismiss
               </p>
-              <div className="rounded-2xl w-[800px] h-[480px] bg-blue-950">
-                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-xl shadow-2xl"></div>
+              <div
+                className="rounded-2xl w-[800px] h-[480px] bg-blue-950 mt-16"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat w-[380px] h-[185px] absolute m-2 rounded-xl shadow-2xl"></div>
                 <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
                   <br></br>Weather App Project <br></br> Created in 2022{" "}
                   <br></br> Built with React
@@ -63,14 +78,22 @@ function Projects() {
                   experiences tailored to a global audience.
                 </p>
               </div>
-            </div>
+            </motion.div>
           )}
           {currentImage == 1 && (
-            <div className=" justify-center">
+            <motion.div
+              className=" justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
               <p className="text-2xl text-white absolute right-[825px] top-[100px]">
                 Click anywhere to dismiss
               </p>
-              <div className="rounded-2xl w-[800px] h-[480px] bg-blue-950">
+              <div
+                className="rounded-2xl w-[800px] h-[480px] bg-blue-950"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute rounded-3xl shadow-2xl"></div>
                 <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
                   <br></br>To-Do List App Project <br></br> Developed in 2023{" "}
@@ -89,15 +112,23 @@ function Projects() {
                   devices.
                 </p>
               </div>
-            </div>
+            </motion.div>
           )}
           {currentImage == 2 && (
-            <div className=" justify-center">
+            <motion.div
+              className=" justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+            >
               <p className="text-2xl text-white absolute right-[825px] top-[100px]">
                 Click anywhere to dismiss
               </p>
-              <div className="rounded-2xl w-[800px] h-[470px] bg-blue-950 shadow-lg">
-                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat w-[380px] h-[230px] m-2 absolute mt-5 shadow-2xl"></div>
+              <div
+                className="rounded-2xl w-[800px] h-[470px] bg-blue-950 shadow-lg"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat w-[380px] h-[183px] m-2 absolute mt-5 shadow-2xl rounded-md"></div>
                 <p className="text-white font-semibold text-3xl left-56 ml-[400px] text-center">
                   <br></br>TicTacToe App Project <br></br> Developed and
                   finished in 2024 <br></br> Built with React <br></br> (again)
@@ -113,9 +144,9 @@ function Projects() {
                   ensures smooth performance across all devices.
                 </p>
               </div>
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       )}
       <div className="bg-gray-900 w-full h-[900px] flex justify-center items-center gap-6 overflow-hidden relative">
         {/* Previous Button */}
@@ -140,7 +171,9 @@ function Projects() {
         <div className="relative">
           <p
             className={`text-white font-semibold text-lg absolute -top-8 left-1/2 -translate-x-1/2 ${
-              hoveredElement === "project" ? "opacity-100" : "opacity-0"
+              hoveredElement === "project" || window.innerWidth < 768
+                ? "opacity-100"
+                : "opacity-0"
             } transition-opacity`}
           >
             {images[currentImage].includes("weather") && "Weather App"}

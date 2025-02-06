@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsTooSmall(window.innerWidth < 1000);
+      setIsTooSmall(window.innerWidth < 500);
     };
 
     window.addEventListener("resize", checkScreenSize);
@@ -24,10 +24,20 @@ function App() {
           📢 Please make your screen wider for a better experience!
         </div>
       )}
-      <Main />
-      <About />
-      <Projects />
-      <Team />
+      <div className="flex flex-col items-center w-full overflow-hidden">
+        <div className="flex w-full">
+          <Main />
+        </div>
+        <div className="flex w-full">
+          <About />
+        </div>
+        <div className="flex w-full">
+          <Projects />
+        </div>
+        <div className="flex w-full">
+          <Team />
+        </div>
+      </div>
     </>
   );
 }

@@ -25,10 +25,6 @@
   word-break: break-word;
 }
 
-body {
-  @apply bg-[url('./pics/backgroundSample3.png')] max-w-full h-full bg-cover bg-no-repeat;
-}
-
 /* Global dark scrollbar styling */
 ::-webkit-scrollbar {
   width: 10px; /* Width of the scrollbar */
@@ -51,7 +47,7 @@ body {
 
 /* Make the horizontal scrollbar thicker */
 ::-webkit-scrollbar {
-  height: 15px; /* Controls the height of the scrollbar */
+  height: 12px; /* Controls the height of the scrollbar */
 }
 
 /* Scrollbar track */

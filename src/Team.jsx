@@ -13,7 +13,7 @@ function Team({ scrollToComponent }) {
 
   return (
     <div>
-      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center absolute top-[2297px] overflow-hidden leading-relaxed">
+      <div className="bg-[rgba(7,5,8,255)] min-w-full h-[1370px] text-center relative w-full overflow-hidden leading-relaxed">
         <p className="text-gray-400 font-bold text-4xl m-24">
           A few words about our team
         </p>
@@ -112,7 +112,7 @@ function Team({ scrollToComponent }) {
 
           {/* Discord Tooltip */}
           <div
-            className={`bg-blue-600 rounded-3xl h-11 w-52 mx-auto mt-6 transition-opacity duration-300 ease-in-out shadow-lg ${
+            className={`bg-blue-600 rounded-3xl h-11 w-52 mx-auto mt-6 mr-52 transition-opacity duration-300 ease-in-out shadow-lg ${
               isClicked ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
