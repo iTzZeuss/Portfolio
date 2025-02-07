@@ -56,19 +56,19 @@ function Projects() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white -mt-24">
+              <p className="text-2xl text-white -mt-24 m-5">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[650px] h-[500px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[560px] h-[410px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat w-[380px] h-[185px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-2xl md:text-3xl left-56 ml-[400px] text-center">
+                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[280px] h-[140px] absolute m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-xl md:text-3xl left-56 ml-[290px] text-center">
                   <br></br>Weather App Project <br></br> Created in 2022{" "}
                   <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold text-xl leading-relaxed mt-24 m-3">
+                <p className="text-white font-semibold md:text-xl text-[19px] leading-relaxed mt-16 md:mt-24 m-3">
                   Weather App The Weather App is a sleek, user-friendly web
                   application designed to deliver real-time weather updates for
                   any location. Built using React, the application leverages
@@ -87,29 +87,26 @@ function Projects() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white -mt-24">
+              <p className="text-2xl text-white -mt-24 m-5">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[650px] h-[530px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[560px] h-[410px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat w-[380px] h-[216px] m-2 absolute rounded-3xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-2xl md:text-3xl left-56 ml-[400px] text-center">
-                  <br></br>To-Do List App Project <br></br> Developed in 2023{" "}
-                  <br></br>
+                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[320px] h-[180px] absolute m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-[22px] md:text-3xl left-56 ml-[327px] text-center">
+                  <br></br>To-Do List App<br></br> Developed in 2023 <br></br>
                   Finished in 2024 <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold text-xl leading-relaxed mt-[74px] m-3">
+                <p className="text-white font-semibold md:text-xl text-[18px] leading-relaxed mt-12 md:mt-24 m-3">
                   The Todo List App is a powerful and intuitive tool designed to
                   help users efficiently manage their tasks and boost
                   productivity. With its clean interface, users can easily add,
                   edit, and delete tasks, organize them into categories, and
                   mark them as completed. The app includes real-time updates and
                   state persistence, ensuring tasks are never lost between
-                  sessions. Last but not least, he app’s responsive design
-                  ensures seamless use across desktops, tablets, and mobile
-                  devices.
+                  sessions.
                 </p>
               </div>
             </motion.div>
@@ -121,19 +118,19 @@ function Projects() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white -mt-24">
+              <p className="text-2xl text-white -mt-24 m-5">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[650px] h-[530px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[560px] h-[410px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat w-[380px] h-[183px] m-2 absolute mt-5 shadow-2xl rounded-md"></div>
-                <p className="text-white font-semibold text-2xl md:text-3xl left-56 ml-[400px] text-center">
+                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[320px] h-[180px] absolute m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-[18px] md:text-3xl left-56 ml-[327px] text-center">
                   <br></br>TicTacToe App Project <br></br> Developed and
-                  finished in 2024 <br></br> Built with React <br></br> (again)
+                  finished in 2024 <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold text-xl leading-relaxed mt-[30px] m-3">
+                <p className="text-white font-semibold md:text-xl text-[17px] leading-relaxed mt-12 md:mt-24 m-3">
                   The Tic Tac Toe Game is a classic strategy game, offering an
                   engaging experience for players of all ages. Designed with a
                   minimalist interface, the game allows two players to compete
@@ -148,7 +145,7 @@ function Projects() {
           )}
         </motion.div>
       )}
-      <div className="bg-gray-900 w-full h-[700px] flex justify-center items-center gap-6 overflow-hidden relative">
+      <div className="bg-gray-900 w-full md:h-[650px] h-[500px] flex justify-center items-center gap-6 overflow-hidden relative">
         {/* Previous Button */}
         <div className="relative flex flex-col items-center">
           <p
@@ -159,7 +156,7 @@ function Projects() {
             Previous
           </p>
           <button
-            className="bg-[url('./pics/left.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            className="bg-[url('./pics/left.png')] w-10 h-10 md:w-12 md:h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
             aria-label="Previous Project"
             onMouseEnter={() => setHoveredElement("previous")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -170,7 +167,7 @@ function Projects() {
         {/* Project Image */}
         <div className="relative">
           <p
-            className={`text-white font-semibold text-lg absolute -top-8 left-1/2 -translate-x-1/2 ${
+            className={`text-white font-semibold text-base md:text-lg absolute -top-7 left-1/2 -translate-x-1/2 ${
               hoveredElement === "project" || window.innerWidth < 768
                 ? "opacity-100"
                 : "opacity-0"
@@ -182,7 +179,7 @@ function Projects() {
           </p>
           <motion.div
             key={currentImage}
-            className="w-[520px] h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-md transition-transform"
+            className="w-[320px] h-[160px] md:w-[520px] md:h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-md transition-transform"
             style={{ backgroundImage: `url(${images[currentImage]})` }}
             onMouseEnter={() => setHoveredElement("project")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -210,30 +207,13 @@ function Projects() {
             Next
           </p>
           <button
-            className="bg-[url('./pics/right.png')] w-12 h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            className="bg-[url('./pics/right.png')] w-10 h-10 md:w-12 md:h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
             aria-label="Next Project"
             onMouseEnter={() => setHoveredElement("next")}
             onMouseLeave={() => setHoveredElement(null)}
             onClick={handleNext}
           ></button>
         </div>
-      </div>
-
-      {/* Pause Animation */}
-      <div className="flex flex-col items-center absolute top-[68%] right-[5%] transform -translate-y-1/2 md:right-[8%] sm:right-[10%]">
-        <p
-          className={`text-white font-semibold mb-2 transition-opacity ${
-            isHovered4 ? "opacity-100" : "opacity-0"
-          } text-lg sm:text-sm`}
-        >
-          Pause Animation
-        </p>
-        <div
-          className="bg-[url('./pics/pause.png')] w-16 h-16 bg-cover cursor-pointer hover:scale-110 transition-transform sm:w-12 sm:h-12"
-          onMouseEnter={() => setIsHovered4(true)}
-          onMouseLeave={() => setIsHovered4(false)}
-          onClick={() => setAnim(!anim)}
-        ></div>
       </div>
 
       {/* Text Animations */}

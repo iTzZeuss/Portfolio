@@ -14,10 +14,10 @@ function Team({ scrollToComponent }) {
   return (
     <div>
       <div className="bg-[rgba(7,5,8,255)] min-w-full min-h-screen text-center relative w-full overflow-hidden leading-relaxed">
-        <p className="text-gray-400 font-bold text-4xl m-24 mt-10">
+        <p className="text-gray-400 font-bold text-4xl m-16 mt-10">
           A few words about our team
         </p>
-        <p className="text-gray-400 font-bold text-xl md:text-3xl m-24">
+        <p className="text-gray-400 font-bold text-xl md:text-3xl m-12 md:m-24">
           Our team is a dynamic group of passionate individuals united by our
           love for innovation and technology. Comprising developers, designers,
           and strategists, we bring a diverse range of skills and perspectives
@@ -33,14 +33,14 @@ function Team({ scrollToComponent }) {
         <p className="text-gray-400 font-bold text-3xl md:text-4xl m-24">
           A few words about this portfolio
         </p>
-        <p className="text-gray-400 font-bold text-xl md:text-3xl m-24">
+        <p className="text-gray-400 font-bold text-xl md:text-3xl m-10 md:m-20">
           {" "}
           This portfolio is a project i made to test my skills and give further
           information about what i can do in terms of programming. Feel free to
           contact me for any job or need using the details provided below.
         </p>
         <section className="py-12 bg-[rgba(7,5,8,255)] text-center">
-          <p className="text-gray-400 font-bold text-3xl md:text-4xl mb-5 -mt-16">
+          <p className="text-gray-400 font-bold text-3xl md:text-4xl -mt-8 m-10">
             Contact Me
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mx-4">
@@ -121,18 +121,20 @@ function Team({ scrollToComponent }) {
         </section>
 
         {/* Footer */}
-        <div className="w-full bg-gray-800 py-6 text-center relative">
-          <p className="text-gray-400 font-semibold text-base">
+        <div className="w-full bg-gray-800 h-20 py-6 text-center relative">
+          <p className="text-gray-400 font-semibold text-base md:text-2xl">
             &copy;{new Date().getFullYear()} John Theo | All Rights Reserved.
             Icons by Flaticon.
           </p>
 
           <div
             onClick={() => scrollToPosition(0)}
-            className="absolute right-5 top-1/2 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
+            className="md:justify-end justify-center ml-12 mt-5 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
           >
-            <span className="mr-2 font-semibold text-base">BACK TO TOP</span>
-            <div className="bg-[url('./pics/arrowUp.png')] bg-cover bg-no-repeat w-6 h-3"></div>
+            <span className="mr-2 font-semibold text-base md:text-2xl">
+              BACK TO TOP
+            </span>
+            <div className="bg-[url('./pics/arrowUp.png')] bg-cover bg-no-repeat md:w-12 md:h-6 w-6 h-3"></div>
           </div>
         </div>
       </div>
