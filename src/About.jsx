@@ -8,17 +8,13 @@ function About() {
 
   return (
     <div className="bg-[rgba(7,5,8,255)] h-[430px] md:h-[550px] text-center relative leading-relaxed overflow-x-auto overflow-y-hidden scrollbar-hide w-full p-4">
-      <motion.div
-        className="flex"
-        animate={{ x: ["100%", "0%"] }} // Moves left infinitely
-        transition={{ repeat: 0, duration: 20, ease: "linear" }} // Adjust speed
-      >
-        <motion.div
+      <div className="flex">
+        <div
           className={`relative px-2 py-1 min-w-[400px] w-[400px] md:min-w-[600px] md:w-[600px] max-h-[340px] m-16`}
         >
-          <motion.p className="text-white font-semibold ml-2 text-center text-3xl md:text-4xl mt-3">
+          <p className="text-white font-semibold ml-2 text-center text-3xl md:text-4xl mt-3">
             Skills
-          </motion.p>
+          </p>
           <div className="text-justify break-all flex mt-5">
             <p className="text-white font-bold p-1 text-left text-base md:text-xl leading-relaxed break-words overflow-wrap-break-word">
               I am a passionate developer with expertise in React, JavaScript,
@@ -27,7 +23,7 @@ function About() {
               user-friendly interfaces through clean, efficient code.
             </p>
           </div>
-          <motion.div className="text-center">
+          <div className="text-center">
             <ReactTyped
               className="text-white font-bold mt-12 text-xl md:text-2xl"
               strings={[
@@ -40,15 +36,15 @@ function About() {
               backSpeed={100}
               loop
             />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
+        <div
           className={`relative px-2 py-1 min-w-[400px] w-[400px] md:min-w-[600px] md:w-[600px] max-h-[340px] m-16`}
         >
-          <motion.p className="text-white font-semibold ml-2 text-center text-3xl md:text-4xl mt-3">
+          <p className="text-white font-semibold ml-2 text-center text-3xl md:text-4xl mt-3">
             Who I am
-          </motion.p>
+          </p>
 
           <p className="text-white font-bold p-2 text-left text-base md:text-xl leading-relaxed break-words overflow-wrap-break-word">
             I'm a 21 year-old optimistic individual with a passion for
@@ -56,22 +52,22 @@ function About() {
             the latest coding news. But at the end of the day, I'm just a person
             who loves learning, growing, and connecting with others.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className={`relative px-2 py-1 min-w-[400px] w-[400px] md:min-w-[600px] md:w-[600px] max-h-[340px] m-16`}
         >
-          <motion.p className="text-white font-semibold ml-2 text-center text-3xl md:text-4xl mt-3">
+          <p className="text-white font-semibold ml-2 text-center text-3xl md:text-4xl mt-3">
             Certificates
-          </motion.p>
+          </p>
           <p className="text-white font-bold p-3 text-left text-base md:text-xl leading-relaxed break-words overflow-wrap-break-word">
             I'm proud to showcase my certifications in various fields. With
             certifications in web development, data science, and cyber security,
             I possess a unique combination of skills that enable me to approach
             problems from multiple angles.
           </p>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
       ;
     </div>
   );

@@ -122,7 +122,7 @@ function Team({ scrollToComponent }) {
 
         {/* Footer */}
         <div className="w-full bg-gray-800 h-20 py-6 text-center relative">
-          <p className="text-gray-400 font-semibold text-base md:text-2xl">
+          <p className="text-gray-400 font-semibold text-sm md:text-2xl">
             &copy;{new Date().getFullYear()} John Theo | All Rights Reserved.
             Icons by Flaticon.
           </p>

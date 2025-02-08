@@ -145,18 +145,18 @@ function Projects() {
           )}
         </motion.div>
       )}
-      <div className="bg-gray-900 w-full md:h-[650px] h-[500px] flex justify-center items-center gap-6 overflow-hidden relative">
+      <div className="bg-gray-900 w-full md:h-[650px] h-[500px] flex justify-center items-center gap-3 overflow-hidden relative">
         {/* Previous Button */}
         <div className="relative flex flex-col items-center">
           <p
-            className={`text-white font-semibold text-md mb-2 ${
+            className={`text-white font-semibold text-[11px] md:text-base mb-1 ${
               hoveredElement === "previous" ? "opacity-100" : "opacity-0"
             } transition-opacity`}
           >
             Previous
           </p>
           <button
-            className="bg-[url('./pics/left.png')] w-10 h-10 md:w-12 md:h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            className="bg-[url('./pics/left.png')] w-8 h-8 md:w-12 md:h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
             aria-label="Previous Project"
             onMouseEnter={() => setHoveredElement("previous")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -179,7 +179,7 @@ function Projects() {
           </p>
           <motion.div
             key={currentImage}
-            className="w-[320px] h-[160px] md:w-[520px] md:h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-md transition-transform"
+            className="w-[250px] h-[110px] md:w-[520px] md:h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-md transition-transform"
             style={{ backgroundImage: `url(${images[currentImage]})` }}
             onMouseEnter={() => setHoveredElement("project")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -200,14 +200,14 @@ function Projects() {
         {/* Next Button */}
         <div className="relative flex flex-col items-center">
           <p
-            className={`text-white font-semibold text-md mb-2 ${
+            className={`text-white font-semibold text-[11px] md:text-base mb-1 ${
               hoveredElement === "next" ? "opacity-100" : "opacity-0"
             } transition-opacity`}
           >
             Next
           </p>
           <button
-            className="bg-[url('./pics/right.png')] w-10 h-10 md:w-12 md:h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
+            className="bg-[url('./pics/right.png')] w-8 h-8 md:w-12 md:h-12 bg-cover cursor-pointer hover:scale-110 transition-transform"
             aria-label="Next Project"
             onMouseEnter={() => setHoveredElement("next")}
             onMouseLeave={() => setHoveredElement(null)}
@@ -220,20 +220,20 @@ function Projects() {
       <motion.p
         className="w-full font-bold text-5xl md:text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
         variants={{
-          initial: { x: -1100 },
+          initial: { x: -1300 },
           animate: {
-            x: "10vw",
+            x: "2vw",
             transition: {
               repeat: Infinity,
               repeatType: "mirror",
-              duration: 7,
+              duration: 15,
             },
           },
         }}
         initial="initial"
         animate={anim ? "animate" : ""}
       >
-        John Doe Programmer Experienced Professional Animator Designer
+        John Theo Programmer Experienced Professional Animator Designer
       </motion.p>
     </div>
   );
