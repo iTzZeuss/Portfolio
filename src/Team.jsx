@@ -121,7 +121,7 @@ function Team({ scrollToComponent }) {
         </section>
 
         {/* Footer */}
-        <div className="w-full bg-gray-800 h-20 py-6 text-center relative">
+        <div className="w-full bg-gray-800 py-6 text-center relative">
           <p className="text-gray-400 font-semibold text-sm md:text-2xl">
             &copy;{new Date().getFullYear()} John Theo | All Rights Reserved.
             Icons by Flaticon.
@@ -129,7 +129,7 @@ function Team({ scrollToComponent }) {
 
           <div
             onClick={() => scrollToPosition(0)}
-            className="md:justify-end justify-center ml-12 mt-5 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
+            className="md:justify-end justify-center mt-7 md:mt-0 ml-12 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
           >
             <span className="mr-2 font-semibold text-base md:text-2xl">
               BACK TO TOP

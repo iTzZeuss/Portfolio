@@ -2,7 +2,7 @@ import React from "react";
 import { ReactTyped } from "react-typed";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, easeIn } from "motion/react";
-import { easeInOut } from "motion";
+import { delay, easeInOut } from "motion";
 import { type } from "@testing-library/user-event/dist/type";
 function Main({ scrollToComponent }) {
   const scrollToPosition = (position) => {
@@ -11,7 +11,15 @@ function Main({ scrollToComponent }) {
       behavior: "smooth", // Smooth scroll
     });
   };
+  const [cursorClass, setCursorClass] = useState("cursor-default"); // Initial cursor
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setCursorClass("cursor-default"); // Change cursor after 1.5s
+    }, 10000);
+
+    return () => clearTimeout(timeout); // Cleanup timeout
+  }, []);
   return (
     <div className="relative w-full bg-bg2 bg-cover bg-center">
       {/* Navigation Links */}
@@ -46,17 +54,19 @@ function Main({ scrollToComponent }) {
           </span>
         </motion.button>
       </motion.div>
-      <motion.div className="justify-center text-center flex -mt-12">
+      <motion.div
+        className={`justify-center text-center flex -mt-12 ${cursorClass}`}
+      >
         <motion.p
-          className="text-white text-5xl md:text-8xl font-anton p-24 -mt-1 font-semibold tracking-wider"
+          className="text-white text-5xl md:text-8xl font-anton p-24 -mt-1 font-semibold tracking-wider "
           animate={{ opacity: ["0%", "100%"] }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 2.5, delay: 1 }}
         >
           Hello!{" "}
           <motion.p
             className="text-white text-4xl md:text-7xl font-anton inline-block font-medium tracking-wide"
             animate={{ x: ["200vw", "0%"] }}
-            transition={{ duration: 1, ease: "easeOut", delay: 1.5 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 2.5 }}
           >
             My name is
           </motion.p>{" "}
@@ -75,10 +85,51 @@ function Main({ scrollToComponent }) {
           >
             Giannis Theo
           </motion.p>
-          <motion.p className="text-white text-3xl md:text-6xl mt-3 font-medium tracking-wider">
-            and I'm a front-end developer.
-          </motion.p>{" "}
-          <motion.p className="text-base sm:text-2xl font-semibold tracking-normal mt-16 font-sans">
+          <motion.p
+            className="text-white text-3xl md:text-6xl mt-3 font-medium tracking-wider inline-flex"
+            animate={{ opacity: ["0%", "100%"] }}
+            transition={{ duration: 2, delay: 5 }}
+          >
+            and I'm a
+          </motion.p>
+          <motion.p
+            className="text-white text-3xl md:text-6xl mt-3 font-medium tracking-wider inline-flex ml-2"
+            variants={{
+              initial: { opacity: 0, y: 0 },
+              end: { opacity: 1, y: 40 },
+              md: { opacity: 1, y: 67 },
+            }}
+            initial="initial"
+            animate={window.innerWidth >= 768 ? "md" : "end"}
+            transition={{
+              y: { duration: 2, ease: easeInOut, delay: 6 },
+              opacity: { duration: 1.5, delay: 5 },
+            }}
+          >
+            developer.
+          </motion.p>
+          <motion.p
+            className="text-white text-3xl md:text-6xl mt-3 font-medium tracking-wider inline-flex ml-2"
+            variants={{
+              initial: { opacity: 0, y: 0, x: 0 },
+              end: { opacity: 1, y: -50, x: 53 },
+              md: { opacity: 1, y: 0, x: -292 },
+            }}
+            initial="initial"
+            animate={window.innerWidth >= 768 ? "md" : "end"}
+            transition={{
+              x: { duration: 2, ease: easeInOut },
+              y: { duration: 2, ease: easeInOut },
+              opacity: { duration: 1.5, delay: 8 },
+            }}
+          >
+            front-end
+          </motion.p>
+          <motion.p
+            className="text-base md:text-2xl font-semibold tracking-normal mt-10 md:mt-32 font-sans"
+            animate={{ opacity: ["0%", "100%"] }}
+            transition={{ duration: 2, delay: 11 }}
+          >
             Let's take a look at various projects, skills, and traits of my
             character that I have developed over time!
           </motion.p>
