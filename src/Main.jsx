@@ -11,11 +11,11 @@ function Main({ scrollToComponent }) {
       behavior: "smooth", // Smooth scroll
     });
   };
-  const [cursorClass, setCursorClass] = useState("cursor-default"); // Initial cursor
+  const [cursorClass, setCursorClass] = useState("cursor-default");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setCursorClass("cursor-default"); // Change cursor after 1.5s
+      setCursorClass("cursor-default");
     }, 10000);
 
     return () => clearTimeout(timeout); // Cleanup timeout
@@ -26,9 +26,17 @@ function Main({ scrollToComponent }) {
       <motion.div
         className="flex justify-center p-12"
         onClick={() => scrollToPosition(1000)} // Scroll to Projects
-        initial={{ y: "-100vh", opacity: 0 }}
+        initial={{ y: "-100vh", opacity: 0, scale: 0.8, y: 50 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 100, damping: 15 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: false }}
       >
         <motion.button
           className="text-3xl md:text-4xl font-varela text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group mr-10"
@@ -56,6 +64,10 @@ function Main({ scrollToComponent }) {
       </motion.div>
       <motion.div
         className={`justify-center text-center flex -mt-12 ${cursorClass}`}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: false }}
       >
         <motion.p
           className="text-white text-5xl md:text-8xl font-anton p-24 -mt-1 font-semibold tracking-wider "
@@ -95,14 +107,15 @@ function Main({ scrollToComponent }) {
           <motion.p
             className="text-white text-3xl md:text-6xl mt-3 font-medium tracking-wider inline-flex ml-2"
             variants={{
-              initial: { opacity: 0, y: 0 },
+              initial: { opacity: 0, x: 0, y: 0 },
               end: { opacity: 1, y: 40 },
-              md: { opacity: 1, y: 67 },
+              md: { opacity: 1, x: 260 },
             }}
             initial="initial"
             animate={window.innerWidth >= 768 ? "md" : "end"}
             transition={{
               y: { duration: 2, ease: easeInOut, delay: 6 },
+              x: { duration: 2, ease: easeInOut, delay: 6 },
               opacity: { duration: 1.5, delay: 5 },
             }}
           >
@@ -120,15 +133,15 @@ function Main({ scrollToComponent }) {
             transition={{
               x: { duration: 2, ease: easeInOut },
               y: { duration: 2, ease: easeInOut },
-              opacity: { duration: 1.5, delay: 8 },
+              opacity: { duration: 1.5, delay: 7 },
             }}
           >
             front-end
           </motion.p>
           <motion.p
-            className="text-base md:text-2xl font-semibold tracking-normal mt-10 md:mt-32 font-sans"
+            className="text-base md:text-3xl font-semibold tracking-normal mt-10 md:mt-32 font-sans"
             animate={{ opacity: ["0%", "100%"] }}
-            transition={{ duration: 2, delay: 11 }}
+            transition={{ duration: 2, delay: 10 }}
           >
             Let's take a look at various projects, skills, and traits of my
             character that I have developed over time!

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { animate, motion } from "framer-motion";
+import { animate, easeInOut, motion } from "framer-motion";
 
 function Projects() {
   const [anim, setAnim] = useState(true);
@@ -147,7 +147,15 @@ function Projects() {
       )}
       <div className="bg-gray-900 w-full md:h-[650px] h-[500px] flex justify-center items-center gap-3 overflow-hidden relative">
         {/* Previous Button */}
-        <div className="relative flex flex-col items-center">
+        <motion.div
+          className="relative flex flex-col items-center"
+          initial={{ y: 70, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 1.2, // Smooth movement
+            ease: "easeInOut", // Gradual start & stop
+          }}
+        >
           <p
             className={`text-white font-semibold text-[11px] md:text-base mb-1 ${
               hoveredElement === "previous" ? "opacity-100" : "opacity-0"
@@ -162,10 +170,18 @@ function Projects() {
             onMouseLeave={() => setHoveredElement(null)}
             onClick={handlePrevious}
           ></button>
-        </div>
+        </motion.div>
 
         {/* Project Image */}
-        <div className="relative">
+        <motion.div
+          className="relative"
+          initial={{ y: 70, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 1.2, // Smooth movement
+            ease: "easeInOut", // Gradual start & stop
+          }}
+        >
           <p
             className={`text-white font-semibold text-base md:text-lg absolute -top-7 left-1/2 -translate-x-1/2 ${
               hoveredElement === "project" || window.innerWidth < 768
@@ -195,10 +211,18 @@ function Projects() {
               className="sr-only"
             />
           </motion.div>
-        </div>
+        </motion.div>
 
         {/* Next Button */}
-        <div className="relative flex flex-col items-center">
+        <motion.div
+          className="relative flex flex-col items-center"
+          initial={{ y: 70, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 1.2, // Smooth movement
+            ease: "easeInOut", // Gradual start & stop
+          }}
+        >
           <p
             className={`text-white font-semibold text-[11px] md:text-base mb-1 ${
               hoveredElement === "next" ? "opacity-100" : "opacity-0"
@@ -213,7 +237,7 @@ function Projects() {
             onMouseLeave={() => setHoveredElement(null)}
             onClick={handleNext}
           ></button>
-        </div>
+        </motion.div>
       </div>
 
       {/* Text Animations */}

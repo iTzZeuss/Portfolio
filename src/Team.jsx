@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 function Team({ scrollToComponent }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -14,10 +15,22 @@ function Team({ scrollToComponent }) {
   return (
     <div>
       <div className="bg-[rgba(7,5,8,255)] min-w-full min-h-screen text-center relative w-full overflow-hidden leading-relaxed">
-        <p className="text-gray-400 font-bold text-4xl m-16 mt-10">
+        <motion.p
+          className="text-gray-400 font-bold text-4xl m-16 mt-10"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
           A few words about our team
-        </p>
-        <p className="text-gray-400 font-bold text-xl md:text-3xl m-12 md:m-24">
+        </motion.p>
+        <motion.p
+          className="text-gray-400 font-bold text-xl md:text-3xl m-12 md:m-24"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
           Our team is a dynamic group of passionate individuals united by our
           love for innovation and technology. Comprising developers, designers,
           and strategists, we bring a diverse range of skills and perspectives
@@ -29,17 +42,35 @@ function Team({ scrollToComponent }) {
           team is committed to continuous learning, embracing new technologies,
           and staying ahead of industry trends to deliver cutting-edge
           solutions.
-        </p>
-        <p className="text-gray-400 font-bold text-3xl md:text-4xl m-24">
+        </motion.p>
+        <motion.p
+          className="text-gray-400 font-bold text-3xl md:text-4xl m-24"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
           A few words about this portfolio
-        </p>
-        <p className="text-gray-400 font-bold text-xl md:text-3xl m-10 md:m-20">
+        </motion.p>
+        <motion.p
+          className="text-gray-400 font-bold text-xl md:text-3xl m-10 md:m-20"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
           {" "}
           This portfolio is a project i made to test my skills and give further
           information about what i can do in terms of programming. Feel free to
           contact me for any job or need using the details provided below.
-        </p>
-        <section className="py-12 bg-[rgba(7,5,8,255)] text-center">
+        </motion.p>
+        <motion.section
+          className="py-12 bg-[rgba(7,5,8,255)] text-center"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
           <p className="text-gray-400 font-bold text-3xl md:text-4xl -mt-8 m-10">
             Contact Me
           </p>
@@ -118,10 +149,16 @@ function Team({ scrollToComponent }) {
               username: cns_master
             </p>
           </div>
-        </section>
+        </motion.section>
 
         {/* Footer */}
-        <div className="w-full bg-gray-800 py-6 text-center relative">
+        <motion.div
+          className="w-full bg-gray-800 py-6 text-center relative"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
           <p className="text-gray-400 font-semibold text-sm md:text-2xl">
             &copy;{new Date().getFullYear()} John Theo | All Rights Reserved.
             Icons by Flaticon.
@@ -129,14 +166,14 @@ function Team({ scrollToComponent }) {
 
           <div
             onClick={() => scrollToPosition(0)}
-            className="md:justify-end justify-center mt-7 md:mt-0 ml-12 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
+            className="md:justify-end justify-center mt-7 md:-mt-3 ml-12 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
           >
             <span className="mr-2 font-semibold text-base md:text-2xl">
               BACK TO TOP
             </span>
-            <div className="bg-[url('./pics/arrowUp.png')] bg-cover bg-no-repeat md:w-12 md:h-6 w-6 h-3"></div>
+            <div className="bg-[url('./pics/arrowUp.png')] bg-cover bg-no-repeat md:w-11 md:h-4 w-6 h-3"></div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
