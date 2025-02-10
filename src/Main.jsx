@@ -25,7 +25,7 @@ function Main({ scrollToComponent }) {
       {/* Navigation Links */}
       <motion.div
         className="flex justify-center p-12"
-        onClick={() => scrollToPosition(1000)} // Scroll to Projects
+        onClick={() => scrollToPosition(1400)} // Scroll to Projects
         initial={{ y: "-100vh", opacity: 0, scale: 0.8, y: 50 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
@@ -51,7 +51,7 @@ function Main({ scrollToComponent }) {
         </motion.button>
         <motion.button
           className="text-3xl md:text-4xl font-varela whitespace-nowrap text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group"
-          onClick={() => scrollToPosition(2400)} // Scroll to Contact
+          onClick={() => scrollToPosition(1900)} // Scroll to Contact
           initial={{ opacity: "0%" }}
           animate={{ opacity: "100%" }}
           transition={{ duration: 2 }}

@@ -56,26 +56,24 @@ function Projects() {
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white -mt-24 m-5">
+              <p className="md:text-2xl text-[22px] text-white -mt-24 m-5">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[560px] h-[410px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[380px] h-[290px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[280px] h-[140px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-xl md:text-3xl left-56 ml-[290px] text-center">
+                <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[200px] h-[100px] absolute m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-base md:text-3xl -mr-52 text-center">
                   <br></br>Weather App Project <br></br> Created in 2022{" "}
                   <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold md:text-xl text-[19px] leading-relaxed mt-16 md:mt-24 m-3">
-                  Weather App The Weather App is a sleek, user-friendly web
-                  application designed to deliver real-time weather updates for
-                  any location. Built using React, the application leverages
-                  responsive design to ensure seamless usability across devices.
-                  This project demonstrates proficiency in API integration,
-                  state management, and crafting dynamic, interactive user
-                  experiences tailored to a global audience.
+                <p className="text-white font-semibold md:text-xl text-[15px] leading-relaxed mt-7 md:mt-24 m-3">
+                  Weather App The Weather App is a user-friendly web application
+                  designed to deliver real-time weather updates for any
+                  location. It leverages responsive design to ensure seamless
+                  usability across devices. This project demonstrates skills in
+                  API integration, state management, and dynamic.
                 </p>
               </div>
             </motion.div>
@@ -87,26 +85,25 @@ function Projects() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white -mt-24 m-5">
+              <p className="md:text-2xl text-[22px] text-white -mt-24 m-5">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[560px] h-[410px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[380px] h-[350px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[320px] h-[180px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-[22px] md:text-3xl left-56 ml-[327px] text-center">
+                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[211px] h-[120px] absolute m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-base md:text-3xl -mr-56 text-center">
                   <br></br>To-Do List App<br></br> Developed in 2023 <br></br>
                   Finished in 2024 <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold md:text-xl text-[18px] leading-relaxed mt-12 md:mt-24 m-3">
-                  The Todo List App is a powerful and intuitive tool designed to
-                  help users efficiently manage their tasks and boost
-                  productivity. With its clean interface, users can easily add,
-                  edit, and delete tasks, organize them into categories, and
-                  mark them as completed. The app includes real-time updates and
-                  state persistence, ensuring tasks are never lost between
-                  sessions.
+                <p className="text-white font-semibold md:text-xl text-md leading-relaxed mt-8 md:mt-24 m-3">
+                  The Todo List App is an intuitive tool designed to help manage
+                  tasks efficiently and boost productivity. With its clean
+                  interface, users can easily add, edit, and delete tasks,
+                  organize them into categories, and mark them as completed. The
+                  app includes real-time updates and state persistence, ensuring
+                  tasks are never lost.
                 </p>
               </div>
             </motion.div>
@@ -118,15 +115,15 @@ function Projects() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p className="text-2xl text-white -mt-24 m-5">
+              <p className="md:text-2xl text-[22px] text-white -mt-24 m-5">
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[560px] h-[410px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[380px] h-[290px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[320px] h-[180px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-[18px] md:text-3xl left-56 ml-[327px] text-center">
+                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[200px] h-[100px] absolute m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-base md:text-3xl -mr-52 text-center">
                   <br></br>TicTacToe App Project <br></br> Developed and
                   finished in 2024 <br></br> Built with React
                 </p>
