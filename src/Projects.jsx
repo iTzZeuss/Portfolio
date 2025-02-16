@@ -64,11 +64,11 @@ function Projects() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="bg-[url(./pics/weather.png)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[200px] h-[100px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-base md:text-3xl -mr-52 text-center">
+                <p className="text-white font-semibold text-base md:text-4xl md:ml-44 -mr-52 text-center">
                   <br></br>Weather App Project <br></br> Created in 2022{" "}
                   <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold md:text-xl text-[15px] leading-relaxed mt-7 md:mt-24 m-3">
+                <p className="text-white font-semibold md:text-3xl text-[15px] leading-relaxed mt-7 md:mt-16 m-3">
                   Weather App The Weather App is a user-friendly web application
                   designed to deliver real-time weather updates for any
                   location. It leverages responsive design to ensure seamless
@@ -92,12 +92,12 @@ function Projects() {
                 className="rounded-2xl md:w-[800px] md:h-[470px] w-[380px] h-[350px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[211px] h-[120px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-base md:text-3xl -mr-56 text-center">
+                <div className="bg-[url(./pics/todoApp.jpg)] bg-contain bg-no-repeat md:w-[332px] md:h-[190px] w-[211px] h-[120px] absolute md:m-5 m-2 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-base md:text-4xl md:ml-36 -mr-56 text-center">
                   <br></br>To-Do List App<br></br> Developed in 2023 <br></br>
                   Finished in 2024 <br></br> Built with React
                 </p>
-                <p className="text-white font-semibold md:text-xl text-md leading-relaxed mt-8 md:mt-24 m-3">
+                <p className="text-white font-semibold md:text-[25px] text-md leading-relaxed mt-8 md:mt-8 m-2">
                   The Todo List App is an intuitive tool designed to help manage
                   tasks efficiently and boost productivity. With its clean
                   interface, users can easily add, edit, and delete tasks,
@@ -119,23 +119,22 @@ function Projects() {
                 Click anywhere to dismiss
               </p>
               <div
-                className="rounded-2xl md:w-[800px] md:h-[470px] w-[380px] h-[290px] bg-blue-950 shadow-lg"
+                className="rounded-2xl md:w-[800px] md:h-[470px] w-[380px] h-[337px] bg-blue-950 shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[200px] h-[100px] absolute m-2 rounded-xl shadow-2xl"></div>
-                <p className="text-white font-semibold text-base md:text-3xl -mr-52 text-center">
-                  <br></br>TicTacToe App Project <br></br> Developed and
-                  finished in 2024 <br></br> Built with React
+                <div className="bg-[url(./gif/tictac.gif)] bg-contain bg-no-repeat md:w-[380px] md:h-[185px] w-[200px] h-[100px] absolute md:m-5 mt-4 ml-3 rounded-xl shadow-2xl"></div>
+                <p className="text-white font-semibold text-[18px] md:text-4xl md:ml-48 -mr-52 text-center tracking-wide">
+                  <br></br>TicTacToe App <br></br> Created in 2024 <br></br>{" "}
+                  Built with React
                 </p>
-                <p className="text-white font-semibold md:text-xl text-[17px] leading-relaxed mt-12 md:mt-24 m-3">
+                <p className="text-white font-semibold md:text-2xl text-[15px] leading-relaxed mt-4 md:mt-20 m-3">
                   The Tic Tac Toe Game is a classic strategy game, offering an
                   engaging experience for players of all ages. Designed with a
                   minimalist interface, the game allows two players to compete
                   head-to-head or challenge themselves against an AI opponent.
                   Built using React, it demonstrates skills in game logic
                   development, user interaction design, and delivering an
-                  enjoyable, polished user experience. The responsive design
-                  ensures smooth performance across all devices.
+                  enjoyable, polished user experience.
                 </p>
               </div>
             </motion.div>
@@ -180,7 +179,7 @@ function Projects() {
           }}
         >
           <p
-            className={`text-white font-semibold text-base md:text-lg absolute -top-7 left-1/2 -translate-x-1/2 ${
+            className={`text-white font-semibold text-base md:text-lg absolute -top-9 left-1/2 -translate-x-1/2 ${
               hoveredElement === "project" || window.innerWidth < 768
                 ? "opacity-100"
                 : "opacity-0"
@@ -192,7 +191,7 @@ function Projects() {
           </p>
           <motion.div
             key={currentImage}
-            className="w-[250px] h-[110px] md:w-[520px] md:h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-md transition-transform"
+            className="w-[250px] h-[110px] md:w-[520px] md:h-[260px] bg-cover cursor-pointer hover:brightness-75 rounded-xl transition-transform"
             style={{ backgroundImage: `url(${images[currentImage]})` }}
             onMouseEnter={() => setHoveredElement("project")}
             onMouseLeave={() => setHoveredElement(null)}

@@ -1,7 +1,8 @@
 import React from "react";
-import { ReactTyped } from "react-typed";
+import { ReactTyped, Typed } from "react-typed";
 import { useEffect, useState, useRef } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
+import { div } from "framer-motion/client";
 
 const About = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
@@ -38,26 +39,40 @@ const HorizontalScrollCarousel = () => {
           })}
         </motion.div>
       </div>
+      <div className="absolute text-4xl left-1/2 bottom-24 transform -translate-x-1/2 font-bold text-white hidden md:block">
+        <ReactTyped
+          strings={[
+            "Welcome to my Portfolio!",
+            "Turning Coffee into Code... and Bugs!",
+            "Frontend Developer by Day... Bug Fixer by Night!",
+            "Let's Build Something Awesome (Hopefully First Try)",
+            "Tailwind Dev - Styling Faster Than My WiFi!",
+          ]}
+          typeSpeed={60}
+          backSpeed={20}
+          loop
+        ></ReactTyped>
+      </div>
     </section>
   );
 };
 
 const Card = ({ card }) => {
   return (
-    <motion.div
-      key={card.id}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      initial={{ opacity: 0, scale: 0.8, y: 50 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      viewport={{ once: false }}
-      className="group rounded-md text-white text-xl md:text-4xl font-semibold p-4 
-             relative w-[300px] h-[300px] md:min-h-[480px] md:min-w-[480px] overflow-hidden 
-             text-center flex items-center justify-center md:font-bold"
-    >
-      <p>{card.string}</p>
-
-      <div className="absolute inset-0 z-10 grid place-content-between "></div>
-    </motion.div>
+    <div>
+      <motion.div
+        key={card.id}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: false }}
+        className="group rounded-md text-white text-xl md:text-4xl font-semibold p-4 
+             relative w-[300px] min-h-[300px] md:min-h-[480px] md:min-w-[480px] overflow-hidden 
+             text-center flex items-center justify-center md:font-bold tracking-wide md:-mt-28"
+      >
+        <p>{card.string}</p>
+      </motion.div>
+    </div>
   );
 };
 
@@ -65,29 +80,31 @@ export default About;
 
 const cards = [
   {
+    string: `Welcome to my portfolio,  a digital masterpiece crafted after countless cups of coffee and several
+     "Why isn't this working?!" moments. I made this site to showcase my skills (and prove to my friends that staring
+      at a screen all day actually leads to something).`,
+
+    id: 1,
+  },
+  {
     string: `I am a passionate developer with expertise in React, JavaScript,
               Tailwind, HTML, and CSS, focused on crafting modern, responsive
               web applications. Skilled in transforming designs into dynamic,
               user-friendly interfaces through clean, efficient code.`,
-
-    id: 1,
+    id: 2,
   },
   {
     string: `I'm a 21 year-old optimistic individual with a passion for
             programming. I'm a bit of a tech enthusiast, always online checking
             the latest coding news. But at the end of the day, I'm just a person
             who loves learning, growing, and connecting with others.`,
-    id: 2,
+    id: 3,
   },
   {
     string: `I'm proud to showcase my certifications in various fields. With
             certifications in web development, data science, and cyber security,
             I possess a unique combination of skills that enable me to approach
             problems from multiple angles.`,
-    id: 3,
-  },
-  {
-    url: "./pics/test.png",
     id: 4,
   },
 ];
