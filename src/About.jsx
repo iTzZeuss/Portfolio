@@ -3,6 +3,7 @@ import { ReactTyped, Typed } from "react-typed";
 import { useEffect, useState, useRef } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
 import { div } from "framer-motion/client";
+import "devicon/devicon.min.css";
 
 const About = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
@@ -24,32 +25,38 @@ const HorizontalScrollCarousel = () => {
     offset: ["start end", "end start"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 0.5], ["50%", "28vw"]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Responsive transform values
+  const x = useTransform(scrollYProgress, [0, 0.5], ["50%", "10vw"]);
   const xx = useTransform(scrollYProgress, [0, 0.5], ["140%", "7%"]);
 
   return (
     <section ref={targetRef} className="relative min-h-screen bg-neutral-950">
-      <div className="sticky top-0 flex h-screen overflow-x-scroll items-center justify-center overflow-hidden">
+      <div className="sticky top-0 flex h-screen overflow-x-scroll items-center justify-start overflow-hidden">
         <motion.div
-          style={{ x: window.innerWidth >= 768 ? x : xx }}
-          className="grid grid-cols-2 md:flex md:flex-row gap-x-72 gap-y-10 "
+          style={{ x: isMobile ? xx : x }}
+          className="grid grid-cols-3 gap-4"
         >
-          {cards.map((card) => {
-            return <Card card={card} key={card.id} />;
-          })}
+          {cards.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
         </motion.div>
       </div>
-      <div className="absolute text-4xl left-1/2 bottom-24 transform -translate-x-1/2 font-bold text-white hidden md:block">
+      <div className="absolute text-4xl left-1/2 bottom-36 transform -translate-x-1/2 font-bold text-white hidden md:block">
         <ReactTyped
-          strings={[
-            "Welcome to my Portfolio!",
-            "Turning Coffee into Code... and Bugs!",
-            "Frontend Developer by Day... Bug Fixer by Night!",
-            "Let's Build Something Awesome (Hopefully First Try)",
-            "Tailwind Dev - Styling Faster Than My WiFi!",
-          ]}
-          typeSpeed={60}
-          backSpeed={20}
+          strings={["Frontend Developer", "Turning Ideas into Code"]}
+          typeSpeed={70}
+          backSpeed={30}
           loop
         ></ReactTyped>
       </div>
@@ -59,18 +66,23 @@ const HorizontalScrollCarousel = () => {
 
 const Card = ({ card }) => {
   return (
-    <div>
+    <div className="flex justify-center items-center">
       <motion.div
         key={card.id}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: false }}
-        className="group rounded-md text-white text-xl md:text-4xl font-semibold p-4 
+        className="rounded-md text-white text-xl md:text-5xl font-semibold p-4 
              relative w-[300px] min-h-[300px] md:min-h-[480px] md:min-w-[480px] overflow-hidden 
-             text-center flex items-center justify-center md:font-bold tracking-wide md:-mt-28"
+             text-center md:font-bold tracking-wide -mt-56 flex justify-center items-center"
       >
-        <p>{card.string}</p>
+        <div className="min-w-[400px] min-h-32 rounded-2xl bg-gradient-to-b from-gray-800 to-gray-600 shadow-md hover:scale-110 transform cursor-default flex justify-center items-center">
+          <div className="text-center px-10">
+            {card.string}
+            {card.id}
+          </div>
+        </div>
       </motion.div>
     </div>
   );
@@ -80,31 +92,28 @@ export default About;
 
 const cards = [
   {
-    string: `Welcome to my portfolio,  a digital masterpiece crafted after countless cups of coffee and several
-     "Why isn't this working?!" moments. I made this site to showcase my skills (and prove to my friends that staring
-      at a screen all day actually leads to something).`,
+    string: `Tailwind `,
 
-    id: 1,
+    id: <i class="devicon-tailwindcss-original"></i>,
   },
   {
-    string: `I am a passionate developer with expertise in React, JavaScript,
-              Tailwind, HTML, and CSS, focused on crafting modern, responsive
-              web applications. Skilled in transforming designs into dynamic,
-              user-friendly interfaces through clean, efficient code.`,
-    id: 2,
+    string: `React `,
+    id: <i class="devicon-react-original"></i>,
   },
   {
-    string: `I'm a 21 year-old optimistic individual with a passion for
-            programming. I'm a bit of a tech enthusiast, always online checking
-            the latest coding news. But at the end of the day, I'm just a person
-            who loves learning, growing, and connecting with others.`,
-    id: 3,
+    string: `Javascript `,
+    id: <i class="devicon-javascript-plain"></i>,
   },
   {
-    string: `I'm proud to showcase my certifications in various fields. With
-            certifications in web development, data science, and cyber security,
-            I possess a unique combination of skills that enable me to approach
-            problems from multiple angles.`,
-    id: 4,
+    string: `Wordpress `,
+    id: <i class="devicon-wordpress-plain"></i>,
+  },
+  {
+    string: `Figma `,
+    id: <i class="devicon-figma-plain"></i>,
+  },
+  {
+    string: `Git `,
+    id: <i class="devicon-git-plain"></i>,
   },
 ];

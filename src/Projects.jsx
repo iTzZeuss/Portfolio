@@ -235,26 +235,6 @@ function Projects() {
           ></button>
         </motion.div>
       </div>
-
-      {/* Text Animations */}
-      <motion.p
-        className="w-full font-bold text-5xl md:text-8xl absolute bottom-12 left-[70px] whitespace-nowrap text-gray-500 opacity-75"
-        variants={{
-          initial: { x: -1300 },
-          animate: {
-            x: "2vw",
-            transition: {
-              repeat: Infinity,
-              repeatType: "mirror",
-              duration: 15,
-            },
-          },
-        }}
-        initial="initial"
-        animate={anim ? "animate" : ""}
-      >
-        John Theo Programmer Experienced Professional Animator Designer
-      </motion.p>
     </div>
   );
 }
