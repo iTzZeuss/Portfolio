@@ -4,14 +4,12 @@ import { useEffect, useState, useRef } from "react";
 import { motion, useTransform, useScroll } from "motion/react";
 import { div } from "framer-motion/client";
 import "devicon/devicon.min.css";
-
 const About = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-
   return (
     <div className="bg-neutral-800 w-full">
       <HorizontalScrollCarousel />
@@ -19,12 +17,6 @@ const About = () => {
   );
 };
 const HorizontalScrollCarousel = () => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -36,17 +28,19 @@ const HorizontalScrollCarousel = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Responsive transform values
-  const x = useTransform(scrollYProgress, [0, 0.5], ["50%", "10vw"]);
-  const xx = useTransform(scrollYProgress, [0, 0.5], ["140%", "7%"]);
-
   return (
-    <section ref={targetRef} className="relative min-h-screen bg-neutral-950">
-      <div className="sticky top-0 flex h-screen overflow-x-scroll items-center justify-start overflow-hidden">
-        <motion.div
-          style={{ x: isMobile ? xx : x }}
-          className="grid grid-cols-3 gap-4"
-        >
+    <section className="relative min-h-screen bg-neutral-950 text-center">
+      <motion.p
+        className="text-white font-semibold text-7xl p-16"
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: false }}
+      >
+        Skills
+      </motion.p>
+      <div className="sticky top-0 flex h-screen overflow-x-scroll items-center justify-center overflow-hidden">
+        <motion.div className="grid grid-cols-3">
           {cards.map((card) => (
             <Card card={card} key={card.id} />
           ))}
@@ -65,6 +59,7 @@ const HorizontalScrollCarousel = () => {
 };
 
 const Card = ({ card }) => {
+  const [hovered, setHovered] = useState(false);
   return (
     <div className="flex justify-center items-center">
       <motion.div
@@ -73,14 +68,18 @@ const Card = ({ card }) => {
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: false }}
-        className="rounded-md text-white text-xl md:text-5xl font-semibold p-4 
+        className="rounded-md md:text-4xl font-semibold p-4 text-white
              relative w-[300px] min-h-[300px] md:min-h-[480px] md:min-w-[480px] overflow-hidden 
-             text-center md:font-bold tracking-wide -mt-56 flex justify-center items-center"
+             text-center md:font-bold tracking-wide -mt-44 flex justify-center items-center"
       >
-        <div className="min-w-[400px] min-h-32 rounded-2xl bg-gradient-to-b from-gray-800 to-gray-600 shadow-md hover:scale-110 transform cursor-default flex justify-center items-center">
+        <div
+          className={`w-[220px] min-h-[220px] rounded-2xl hover:scale-110 transform cursor-default flex justify-center items-center transition-all duration-300`}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
           <div className="text-center px-10">
+            {card.id} <br />
             {card.string}
-            {card.id}
           </div>
         </div>
       </motion.div>
@@ -94,26 +93,28 @@ const cards = [
   {
     string: `Tailwind `,
 
-    id: <i class="devicon-tailwindcss-original"></i>,
+    id: <i className="devicon-tailwindcss-original colored text-[130px]"></i>,
   },
   {
     string: `React `,
-    id: <i class="devicon-react-original"></i>,
+    id: <i class="devicon-react-original colored text-[130px]"></i>,
   },
   {
     string: `Javascript `,
-    id: <i class="devicon-javascript-plain"></i>,
+    id: <i class="devicon-javascript-plain text-[130px]"></i>,
+  },
+
+  {
+    string: `Git `,
+    id: <i class="devicon-git-plain colored text-[130px]"></i>,
+  },
+
+  {
+    string: `Figma `,
+    id: <i class="devicon-figma-plain colored text-[130px]"></i>,
   },
   {
     string: `Wordpress `,
-    id: <i class="devicon-wordpress-plain"></i>,
-  },
-  {
-    string: `Figma `,
-    id: <i class="devicon-figma-plain"></i>,
-  },
-  {
-    string: `Git `,
-    id: <i class="devicon-git-plain"></i>,
+    id: <i class="devicon-wordpress-plain text-[130px]"></i>,
   },
 ];

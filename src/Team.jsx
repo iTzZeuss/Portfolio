@@ -16,7 +16,7 @@ function Team({ scrollToComponent }) {
     <div>
       <div className="bg-[rgba(7,5,8,255)] min-w-full min-h-screen text-center relative w-full overflow-hidden leading-relaxed">
         <motion.p
-          className="text-gray-400 font-bold text-4xl m-16 mt-10"
+          className="text-gray-400 font-bold text-4xl m-16 mt-16"
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           transition={{ duration: 0.5, ease: "easeOut" }}

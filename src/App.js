@@ -1,9 +1,7 @@
-import { useRef, useState, useEffect } from "react";
 import Projects from "./Projects.jsx";
 import Main from "./Main.jsx";
 import Team from "./Team.jsx";
 import About from "./About.jsx";
-
 function App() {
   return (
     <>
