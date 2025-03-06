@@ -153,26 +153,21 @@ function Team({ scrollToComponent }) {
 
         {/* Footer */}
         <motion.div
-          className="w-full bg-gray-800 py-6 text-center relative"
+          className="w-full text-center relative border-t-2"
           whileInView={{ opacity: 1 }}
           initial={{ opacity: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           viewport={{ once: false }}
         >
-          <p className="text-gray-400 font-semibold text-sm md:text-2xl">
-            &copy;{new Date().getFullYear()} John Theo | All Rights Reserved.
+          <p className="text-gray-400 font-semibold m-6 text-sm md:text-2xl">
+            &copy;{new Date().getFullYear()} Giannis Theo | All Rights Reserved.
             Icons by Flaticon.
           </p>
 
           <div
             onClick={() => scrollToPosition(0)}
-            className="md:justify-end justify-center mt-7 md:-mt-3 ml-12 transform -translate-y-1/2 cursor-pointer text-cyan-400 hover:text-cyan-200 flex items-center"
-          >
-            <span className="mr-2 font-semibold text-base md:text-2xl">
-              BACK TO TOP
-            </span>
-            <div className="bg-[url('./pics/arrowUp.png')] bg-cover bg-no-repeat md:w-11 md:h-4 w-6 h-3"></div>
-          </div>
+            className="md:justify-end justify-center mt-7 md:-mt-3 cursor-pointer transition-colors text-gray-400 hover:text-gray-200 group flex items-center"
+          ></div>
         </motion.div>
       </div>
     </div>

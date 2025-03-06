@@ -28,6 +28,7 @@ function Main({ scrollToComponent }) {
         className="flex justify-center p-12 mt-4"
         initial={{ y: "-100vh", opacity: 0, scale: 0.8, y: 50 }}
         animate={{ y: 0, opacity: 1 }}
+        whileTap={{ scale: 0.6 }}
         transition={{
           type: "spring",
           stiffness: 100,
