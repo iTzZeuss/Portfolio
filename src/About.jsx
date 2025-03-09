@@ -37,7 +37,7 @@ const HorizontalScrollCarousel = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: false }}
       >
-        Skills
+        Specializing in
       </motion.p>
       <div className="sticky top-0 flex h-screen overflow-x-scroll items-center justify-center overflow-hidden">
         <motion.div className="grid grid-cols-3">

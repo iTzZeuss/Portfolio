@@ -1,10 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInstagram,
+  faXTwitter,
+  faGithub,
+  faDiscord,
+  faGit,
+} from "@fortawesome/free-brands-svg-icons";
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import { Scale } from "lucide-react";
 
 function Team({ scrollToComponent }) {
   const [isClicked, setIsClicked] = useState(false);
-
+  const [isHovered, setIsHovered] = useState(null);
+  const [isCopied, setIsCopied] = useState(false);
   const scrollToPosition = (position) => {
     window.scrollTo({
       top: position, // Scroll to this vertical position
@@ -12,164 +23,180 @@ function Team({ scrollToComponent }) {
     });
   };
 
+  const copyDiscord = () => {
+    navigator.clipboard.writeText(discordUser);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 2000);
+  };
+
+  const discordUser = "cns_master";
+
   return (
-    <div>
-      <div className="bg-[rgba(7,5,8,255)] min-w-full min-h-screen text-center relative w-full overflow-hidden leading-relaxed">
-        <motion.p
-          className="text-gray-400 font-bold text-4xl m-16 mt-16"
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+    <div className="bg-[rgba(7,5,8,255)] min-h-screen w-full">
+      <motion.div
+        className="m-48 items-end leading-relaxed flex flex-col gap-4"
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        initial={{ opacity: 0, scale: 0.8, y: 50 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: false }}
+      >
+        <p className="text-5xl font-varela text-white font-semibold">
+          For responsive designs
+        </p>
+        <p className="text-[49px] font-varela text-white font-semibold">
+          For general UI designs
+        </p>
+        <p className="text-5xl font-varela text-white font-semibold">
+          For smooth animations
+        </p>
+        <p className="text-[48.5px] font-varela text-white font-semibold">
+          For smart e-commerse
+        </p>
+        <div
+          className="w-fit justify-center"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <motion.button
+            className="text-3xl text-white font-anton rounded-full w-80 h-20 flex items-center justify-center 
+        transition-all duration-300 relative overflow-hidden "
+            animate={{
+              background: isHovered
+                ? "linear-gradient(to bottom right, #3b82f6, #06b6d4)"
+                : "linear-gradient(to top, #3b82f6, #06b6d4)",
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            whileTap={{ scale: 4 }}
+          >
+            Hover Me
+          </motion.button>
+        </div>
+      </motion.div>
+
+      <div className="-mt-[600px] m-56 flex flex-col gap-7 text-left">
+        {" "}
+        <motion.div
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8, x: 50 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
         >
-          A few words about our team
-        </motion.p>
-        <motion.p
-          className="text-gray-400 font-bold text-xl md:text-3xl m-12 md:m-24"
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          initial={{ opacity: 0, scale: 0.8, y: 50 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ once: false }}
-        >
-          Our team is a dynamic group of passionate individuals united by our
-          love for innovation and technology. Comprising developers, designers,
-          and strategists, we bring a diverse range of skills and perspectives
-          to every project we undertake. Collaboration is at the heart of our
-          process, as we believe the best solutions come from pooling ideas and
-          expertise. Whether it's brainstorming creative concepts, tackling
-          complex coding challenges, or fine-tuning user experiences, we thrive
-          on pushing boundaries and exceeding expectations. Each member of the
-          team is committed to continuous learning, embracing new technologies,
-          and staying ahead of industry trends to deliver cutting-edge
-          solutions.
-        </motion.p>
-        <motion.p
-          className="text-gray-400 font-bold text-3xl md:text-4xl m-24"
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          initial={{ opacity: 0, scale: 0.8, y: 50 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          viewport={{ once: false }}
-        >
-          A few words about this portfolio
-        </motion.p>
-        <motion.p
-          className="text-gray-400 font-bold text-xl md:text-3xl m-10 md:m-20"
+          <p className="text-7xl text-white font-semibold leading-none">
+            Contact me
+          </p>
+        </motion.div>
+        <motion.div
+          className="flex items-center gap-4"
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
         >
           {" "}
-          This portfolio is a project i made to test my skills and give further
-          information about what i can do in terms of programming. Feel free to
-          contact me for any job or need using the details provided below.
-        </motion.p>
-        <motion.section
-          className="py-12 bg-[rgba(7,5,8,255)] text-center"
+          <FontAwesomeIcon
+            icon={faInstagram}
+            style={{ fontSize: "48px" }}
+            color="white"
+            className="h-12 w-12"
+          />
+          <a
+            className="text-5xl text-white font-semibold leading-none"
+            href="https://www.instagram.com/_theodosiadiss_/"
+          >
+            Instagram
+          </a>
+        </motion.div>
+        <motion.div
+          className="flex items-center gap-4"
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           initial={{ opacity: 0, scale: 0.8, y: 50 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
         >
-          <p className="text-gray-400 font-bold text-3xl md:text-4xl -mt-8 m-10">
-            Contact Me
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mx-4">
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/_theodosiadiss_/"
-              className="text-cyan-600 font-bold text-2xl hover:text-cyan-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my Instagram profile"
-            >
-              Instagram
-            </a>
-
-            {/* X (Twitter) */}
-            <a
-              href="https://x.com/Giannis763881"
-              className="text-cyan-600 font-bold text-2xl hover:text-cyan-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my X profile"
-            >
-              X (Twitter)
-            </a>
-
-            {/* Fiverr */}
-            <a
-              href="https://www.fiverr.com/sellers/giannis_theodo/"
-              className="text-cyan-600 font-bold text-2xl hover:text-cyan-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my Fiverr profile"
-            >
-              Fiverr
-            </a>
-
-            {/* GitHub */}
-            <a
-              href="https://github.com/iTzZeuss"
-              className="text-cyan-600 font-bold text-2xl hover:text-cyan-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my GitHub profile"
-            >
-              GitHub
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:johntheojohn@gmail.com"
-              className="text-cyan-600 font-bold text-2xl hover:text-cyan-400 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Email me"
-            >
-              Email
-            </a>
-
-            {/* Discord */}
-            <p
-              className="text-cyan-600 font-bold text-2xl hover:text-cyan-400 transition-colors cursor-pointer"
-              onClick={() => setIsClicked(!isClicked)}
-            >
-              Discord
-            </p>
-          </div>
-
-          {/* Discord Tooltip */}
-          <div
-            className={`bg-blue-600 rounded-3xl h-11 w-52 mx-auto mt-6 mr-52 transition-opacity duration-300 ease-in-out shadow-lg ${
-              isClicked ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
+          <FontAwesomeIcon
+            icon={faXTwitter}
+            style={{ fontSize: "48px" }}
+            className="h-12 w-12"
+            color="white"
+          />
+          <a
+            className="text-5xl text-white font-semibold leading-none"
+            href="https://x.com/Giannis763881"
           >
-            <p className="text-white font-medium text-base py-2 px-4">
-              username: cns_master
-            </p>
-          </div>
-        </motion.section>
-
-        {/* Footer */}
+            Twitter
+          </a>
+        </motion.div>
         <motion.div
-          className="w-full text-center relative border-t-2"
-          whileInView={{ opacity: 1 }}
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex items-center gap-4"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
         >
-          <p className="text-gray-400 font-semibold m-6 text-sm md:text-2xl">
-            &copy;{new Date().getFullYear()} Giannis Theo | All Rights Reserved.
-            Icons by Flaticon.
-          </p>
-
-          <div
-            onClick={() => scrollToPosition(0)}
-            className="md:justify-end justify-center mt-7 md:-mt-3 cursor-pointer transition-colors text-gray-400 hover:text-gray-200 group flex items-center"
-          ></div>
+          <FontAwesomeIcon
+            icon={faDiscord}
+            style={{ fontSize: "48px" }}
+            className="h-12 w-12"
+            color="white"
+          />
+          <a
+            className="text-5xl text-white font-semibold leading-none cursor-pointer"
+            onClick={copyDiscord}
+          >
+            Discord
+          </a>
+          <motion.div
+            style={{ opacity: isCopied ? 1 : 0 }}
+            className="flex items-center gap-2 transition-opacity"
+          >
+            <FontAwesomeIcon
+              icon={faCopy}
+              color="white"
+              style={{ fontSize: "28px" }}
+            />
+            <p className="text-white text-xl cursor-default">
+              Copied to clipboard!
+            </p>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          className="flex items-center gap-4"
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          viewport={{ once: false }}
+        >
+          <FontAwesomeIcon
+            icon={faGithub}
+            style={{ fontSize: "48px" }}
+            className="h-12 w-12"
+            color="white"
+          />
+          <a
+            className="text-5xl text-white font-semibold leading-none "
+            href="https://github.com/iTzZeuss"
+          >
+            GitHub
+          </a>
         </motion.div>
       </div>
+      <motion.div
+        className="w-full text-center relative border-t-2 mt-96"
+        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: false }}
+      >
+        <p className="text-gray-400 font-semibold m-6 text-sm md:text-2xl">
+          &copy;{new Date().getFullYear()} Giannis Theo | All Rights Reserved.
+          Icons by DevIcon and Fontawesome.
+        </p>
+
+        <div
+          onClick={() => scrollToPosition(0)}
+          className="md:justify-end justify-center mt-7 md:-mt-3 cursor-pointer transition-colors text-gray-400 hover:text-gray-200 group flex items-center"
+        ></div>
+      </motion.div>
     </div>
   );
 }
