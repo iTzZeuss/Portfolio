@@ -17,21 +17,101 @@ const About = () => {
   );
 };
 const HorizontalScrollCarousel = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Set initial state
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize); // Listen for window resize
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // Cleanup
+    };
   }, []);
+  const cards = isMobile
+    ? [
+        {
+          string: "Tailwind",
+          id: (
+            <i className="devicon-tailwindcss-original colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "React",
+          id: (
+            <i className="devicon-react-original colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Figma",
+          id: (
+            <i className="devicon-figma-plain colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Git",
+          id: (
+            <i className="devicon-git-plain colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Javascript",
+          id: (
+            <i className="devicon-javascript-plain text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Wordpress",
+          id: (
+            <i className="devicon-wordpress-plain text-[80px] md:text-[130px]"></i>
+          ),
+        },
+      ]
+    : [
+        {
+          string: "Tailwind",
+          id: (
+            <i className="devicon-tailwindcss-original colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "React",
+          id: (
+            <i className="devicon-react-original colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Javascript",
+          id: (
+            <i className="devicon-javascript-plain text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Git",
+          id: (
+            <i className="devicon-git-plain colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Figma",
+          id: (
+            <i className="devicon-figma-plain colored text-[80px] md:text-[130px]"></i>
+          ),
+        },
+        {
+          string: "Wordpress",
+          id: (
+            <i className="devicon-wordpress-plain text-[80px] md:text-[130px]"></i>
+          ),
+        },
+      ];
 
   return (
     <section className="relative min-h-screen bg-neutral-950 text-center">
       <motion.p
-        className="text-white font-semibold text-7xl p-16"
+        className="text-white font-semibold md:text-7xl text-3xl p-16"
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         initial={{ opacity: 0, scale: 0.8, y: 50 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -39,14 +119,14 @@ const HorizontalScrollCarousel = () => {
       >
         Specializing in
       </motion.p>
-      <div className="sticky top-0 flex h-screen overflow-x-scroll items-center justify-center overflow-hidden">
-        <motion.div className="grid grid-cols-3">
+      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
+        <motion.div className="grid md:grid-cols-3 grid-cols-2 md:gap-0 gap-8">
           {cards.map((card) => (
             <Card card={card} key={card.id} />
           ))}
         </motion.div>
       </div>
-      <div className="absolute text-4xl left-1/2 bottom-36 transform -translate-x-1/2 font-bold text-white hidden md:block">
+      <div className="absolute md:text-4xl whitespace-nowrap text-xl left-1/2 bottom-56 md:bottom-36 transform -translate-x-1/2 font-bold text-white block">
         <ReactTyped
           strings={["Frontend Developer", "Turning Ideas into Code"]}
           typeSpeed={70}
@@ -69,7 +149,7 @@ const Card = ({ card }) => {
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: false }}
         className="rounded-md md:text-4xl font-semibold p-4 text-white
-             relative w-[300px] min-h-[300px] md:min-h-[480px] md:min-w-[480px] overflow-hidden 
+             relative min-w-[300px] h-[300px] md:min-h-[480px] md:min-w-[480px] overflow-hidden 
              text-center md:font-bold tracking-wide -mt-44 flex justify-center items-center"
       >
         <div
@@ -88,33 +168,3 @@ const Card = ({ card }) => {
 };
 
 export default About;
-
-const cards = [
-  {
-    string: `Tailwind `,
-
-    id: <i className="devicon-tailwindcss-original colored text-[130px]"></i>,
-  },
-  {
-    string: `React `,
-    id: <i class="devicon-react-original colored text-[130px]"></i>,
-  },
-  {
-    string: `Javascript `,
-    id: <i class="devicon-javascript-plain text-[130px]"></i>,
-  },
-
-  {
-    string: `Git `,
-    id: <i class="devicon-git-plain colored text-[130px]"></i>,
-  },
-
-  {
-    string: `Figma `,
-    id: <i class="devicon-figma-plain colored text-[130px]"></i>,
-  },
-  {
-    string: `Wordpress `,
-    id: <i class="devicon-wordpress-plain text-[130px]"></i>,
-  },
-];

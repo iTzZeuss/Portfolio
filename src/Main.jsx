@@ -23,7 +23,6 @@ function Main({ scrollToComponent }) {
   }, []);
   return (
     <div className="relative w-full bg-bg2 bg-cover bg-center">
-      {/* Navigation Links */}
       <motion.div
         className="flex justify-center p-12 mt-4"
         initial={{ y: "-100vh", opacity: 0, scale: 0.8, y: 50 }}
@@ -41,13 +40,13 @@ function Main({ scrollToComponent }) {
       >
         <motion.button
           className="text-3xl md:text-4xl font-varela text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group mr-10"
-          onClick={() => scrollToPosition(1800)} // Scroll to Projects
+          onClick={() => scrollToPosition(2000)} // Scroll to Projects
           initial={{ opacity: "0%" }}
           animate={{ opacity: "100%" }}
           transition={{ duration: 2 }}
         >
           <span className="relative">
-            Projects
+            Timeline
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gray-300 transition-all duration-300 group-hover:w-full"></span>
           </span>
         </motion.button>
@@ -141,7 +140,7 @@ function Main({ scrollToComponent }) {
             front-end
           </motion.p>
           <motion.div
-            className="text-base text-gray-300 flex justify-center gap-2 md:text-3xl tracking-normal md:mt-36 font-sans"
+            className="text-base text-gray-300 flex justify-center gap-2 md:text-3xl tracking-normal md:mt-36 mt-12 font-sans"
             animate={{ opacity: ["0%", "100%"] }}
             transition={{ duration: 2, delay: 5.5 }}
           >
