@@ -126,7 +126,7 @@ const HorizontalScrollCarousel = () => {
           ))}
         </motion.div>
       </div>
-      <div className="absolute md:text-4xl whitespace-nowrap text-xl left-1/2 bottom-56 md:bottom-36 transform -translate-x-1/2 font-bold text-white block">
+      <div className="absolute md:text-4xl whitespace-nowrap text-xl left-1/2 bottom-28 md:bottom-36 transform -translate-x-1/2 font-bold text-white block">
         <ReactTyped
           strings={["Frontend Developer", "Turning Ideas into Code"]}
           typeSpeed={70}
