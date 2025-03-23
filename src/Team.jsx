@@ -164,7 +164,7 @@ function Team({ scrollToComponent }) {
             </p>
             <input
               type="text"
-              name="username"
+              name="email"
               className="w-full h-12 p-4 text-white bg-neutral-900 border border-gray-700 rounded-lg 
               focus:outline-none focus:ring-2 focus:ring-blue-500"
               onChange={handleChange}
@@ -175,6 +175,8 @@ function Team({ scrollToComponent }) {
               Message:
             </p>
             <input
+              type="text"
+              name="message"
               className="w-full h-40 p-4 text-white bg-neutral-900 border border-gray-700 rounded-lg 
             focus:outline-none focus:ring-2 focus:ring-blue-500"
               onChange={handleChange}

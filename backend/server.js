@@ -1,37 +1,40 @@
 require("dotenv").config();
-const http = require("http");
+const express = require("express");
+const cors = require("cors");
 const { neon } = require("@neondatabase/serverless");
+
+const app = express();
+const port = process.env.PORT || 5000;
 const sql = neon(process.env.DATABASE_URL);
 
-const requestHandler = async (req, res) => {
-  if (req.method === "POST" && req.url === "/submit") {
-    let body = "";
+// Middleware
+app.use(cors()); // Allow frontend requests
+app.use(express.json()); // Parse JSON bodies
 
-    req.on("data", (chunk) => {
-      body += chunk.toString();
-    });
+// Test route
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
-    req.on("end", async () => {
-      try {
-        const { name, email, message } = JSON.parse(body);
+// Form submission route
+app.post("/submit", async (req, res) => {
+  try {
+    const { email, message } = req.body;
 
-        // Insert data into the database
-        await sql`INSERT INTO users (name, email, message) VALUES (${name}, ${email}, ${message})`;
+    if (!email || !message) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
 
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ success: true, message: "Data inserted!" }));
-      } catch (error) {
-        console.error(error);
-        res.writeHead(500, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ success: false, error: error.message }));
-      }
-    });
-  } else {
-    res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end("Not Found");
+    await sql`INSERT INTO contacts (email, message) VALUES (${email}, ${message})`;
+
+    res.json({ success: true, message: "Form submitted successfully!" });
+  } catch (error) {
+    console.error("Error saving form data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
-};
+});
 
-http.createServer(requestHandler).listen(5000, () => {
-  console.log("Server running at http://localhost:5000");
+// Start server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
