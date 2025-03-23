@@ -48,7 +48,7 @@ function Team({ scrollToComponent }) {
 
     try {
       const response = await fetch(
-        "portfolio-pnrjd29sf-itzzeuss-projects.vercel.app",
+        "https://portfolio-pnrjd29sf-itzzeuss-projects.vercel.app",
         {
           method: "POST",
           headers: {
