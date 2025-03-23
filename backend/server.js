@@ -7,8 +7,16 @@ require("dotenv").config();
 const app = express();
 const port = 5000;
 
-app.use(express.json()); // ✅ Allows JSON body parsing
-app.use(cors()); // ✅ Allows cross-origin requests
+app.use(express.json());
+
+// ✅ FIX: Allow requests from your frontend (alterapps.xyz)
+app.use(
+  cors({
+    origin: "https://www.alterapps.xyz", // ✅ Change this to your frontend URL
+    methods: "POST, GET, OPTIONS",
+    allowedHeaders: "Content-Type",
+  })
+);
 
 const sql = neon(process.env.DATABASE_URL);
 
