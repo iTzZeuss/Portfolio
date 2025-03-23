@@ -17,6 +17,10 @@ function Team({ scrollToComponent }) {
   const [isHovered, setIsHovered] = useState(null);
   const [isCopied, setIsCopied] = useState(false);
   const [username, setUsername] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    message: "",
+  });
   const scrollToPosition = (position) => {
     window.scrollTo({
       top: position, // Scroll to this vertical position
@@ -29,27 +33,53 @@ function Team({ scrollToComponent }) {
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
-
+  const discordUser = "cns_master";
   const motionProps = {
     whileInView: { opacity: 1, scale: 1, y: 0 },
     initial: { opacity: 0, scale: 0.8, y: 50 },
     transition: { duration: 0.5, ease: "easeOut" },
     viewport: { once: false },
   };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const discordUser = "cns_master";
+    try {
+      const response = await fetch(
+        "portfolio-pnrjd29sf-itzzeuss-projects.vercel.app",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className="bg-[rgba(7,5,8,255)] min-h-screen w-full">
       <div className="flex flex-col md:flex-row">
         <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
-          <div className="w-full md:w-1/2 md:m-56 m-24 flex flex-col gap-7 md:text-left md:items-start items-center">
-            <motion.div
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              initial={{ opacity: 0, scale: 0.8, x: 50 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              viewport={{ once: false }}
-            >
+          <motion.div
+            className="w-full md:w-1/2 md:m-56 m-24 flex flex-col gap-7 md:gap-0 md:text-left md:items-start items-center"
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            viewport={{ once: false }}
+          >
+            <motion.div>
               <p className="text-3xl md:text-7xl text-white font-semibold leading-none whitespace-nowrap text-center">
                 Contact me
               </p>
@@ -109,32 +139,46 @@ function Team({ scrollToComponent }) {
                 Discord
               </a>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
         <motion.div
           className="w-full md:w-1/2 md:m-48 m-20 flex flex-col md:gap-10 gap-4 items-start md:items-start text-center whitespace-nowrap"
           {...motionProps}
         >
-          <p className="text-2xl md:text-5xl font-varela text-white font-semibold">
+          <p className="text-xl md:text-5xl font-varela text-white font-semibold">
             For UI designs
           </p>
-          <p className="text-2xl md:text-5xl font-varela text-white font-semibold">
+          <p className="text-xl md:text-5xl font-varela text-white font-semibold">
             For smooth animations
           </p>
-          <p className="text-[22.5px] md:text-5xl font-varela text-white font-semibold">
+          <p className="text-[21px] md:text-5xl font-varela text-white font-semibold">
             For e-commerce web apps
           </p>
-          <p className="md:text-5xl text-xl font-varela text-white font-semibold">
+          <p className="md:text-5xl text-[20px] font-varela text-white font-semibold">
             For any kind of responsive site
           </p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const formData = new FormData(e.currentTarget);
-              console.log(formData.get("username"));
-            }}
-          >
-            <input type="text" name="username" className="p-2 rounded mt-6" />
+          <br></br>
+          <form onSubmit={handleSubmit}>
+            <p className="md:text-5xl text-[20px] font-varela text-white md:p-6 p-1">
+              Email or any method:
+            </p>
+            <input
+              type="text"
+              name="username"
+              className="w-full h-12 p-4 text-white bg-neutral-900 border border-gray-700 rounded-lg 
+              focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleChange}
+            />
+            <br></br>
+            <br></br>
+            <p className="md:text-5xl text-[20px] font-varela text-white md:p-6 p-1">
+              Message:
+            </p>
+            <input
+              className="w-full h-40 p-4 text-white bg-neutral-900 border border-gray-700 rounded-lg 
+            focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={handleChange}
+            ></input>
             <div className="flex justify-center mt-8">
               <motion.button
                 className="text-2xl md:text-3xl text-white font-anton rounded-full h-16 w-40 md:w-80 md:h-20 flex items-center justify-center transition-all duration-300 relative overflow-hidden"
@@ -146,7 +190,7 @@ function Team({ scrollToComponent }) {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 whileTap={{ scale: 0.95 }}
               >
-                Hire Me
+                Submit
               </motion.button>
             </div>
           </form>
