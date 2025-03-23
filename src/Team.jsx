@@ -47,22 +47,24 @@ function Team({ scrollToComponent }) {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "https://portfolio-pnrjd29sf-itzzeuss-projects.vercel.app",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: formData.email,
-            message: formData.message,
-          }),
-        }
-      );
+      const response = await fetch("https://your-backend-endpoint.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit");
 
       const data = await response.json();
-      console.log(data);
+      console.log("Success:", data);
+
+      // Reset form inputs
+      setFormData({ email: "", message: "" });
     } catch (error) {
       console.error("Error:", error);
     }
