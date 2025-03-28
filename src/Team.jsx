@@ -43,32 +43,32 @@ function Team({ scrollToComponent }) {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => { TODO: use it as data check function... and submit by action param dont use fetch shit for form.
+  //   e.preventDefault();
 
-    try {
-      const response = await fetch("https://your-backend-endpoint.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          message: formData.message,
-        }),
-      });
+  //   try {
+  //     const response = await fetch("https://your-backend-endpoint.com/submit", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         email: formData.email,
+  //         message: formData.message,
+  //       }),
+  //     });
 
-      if (!response.ok) throw new Error("Failed to submit");
+  //     if (!response.ok) throw new Error("Failed to submit");
 
-      const data = await response.json();
-      console.log("Success:", data);
+  //     const data = await response.json();
+  //     console.log("Success:", data);
 
-      // Reset form inputs
-      setFormData({ email: "", message: "" });
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  //     // Reset form inputs
+  //     setFormData({ email: "", message: "" });
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //   }
+  // };
 
   return (
     <div className="bg-[rgba(7,5,8,255)] min-h-screen w-full">
@@ -160,7 +160,7 @@ function Team({ scrollToComponent }) {
             For any kind of responsive site
           </p>
           <br></br>
-          <form onSubmit={handleSubmit}>
+          <form action="/submit" method="POST">
             <p className="md:text-5xl text-[20px] font-varela text-white md:p-6 p-1">
               Email or any method:
             </p>
@@ -169,10 +169,9 @@ function Team({ scrollToComponent }) {
               name="email"
               className="w-full h-12 p-4 text-white bg-neutral-900 border border-gray-700 rounded-lg 
               focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onChange={handleChange}
             />
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             <p className="md:text-5xl text-[20px] font-varela text-white md:p-6 p-1">
               Message:
             </p>
@@ -180,9 +179,8 @@ function Team({ scrollToComponent }) {
               type="text"
               name="message"
               className="w-full h-40 p-4 text-white bg-neutral-900 border border-gray-700 rounded-lg 
-            focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onChange={handleChange}
-            ></input>
+              focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
             <div className="flex justify-center mt-8">
               <motion.button
                 className="text-2xl md:text-3xl text-white font-anton rounded-full h-16 w-40 md:w-80 md:h-20 flex items-center justify-center transition-all duration-300 relative overflow-hidden"
@@ -198,6 +196,7 @@ function Team({ scrollToComponent }) {
               </motion.button>
             </div>
           </form>
+
         </motion.div>{" "}
       </div>
       <motion.div
