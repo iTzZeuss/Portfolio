@@ -160,7 +160,7 @@ function Team({ scrollToComponent }) {
             For e-commerce web apps
           </p>
           <p className="md:text-5xl text-[20px] font-varela text-white font-semibold">
-            For any kind of responsive site
+            For any kind of site
           </p>
           <br></br>
           <form action="/submit" method="POST">
