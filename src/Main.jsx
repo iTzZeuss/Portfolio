@@ -40,7 +40,7 @@ function Main({ scrollToComponent }) {
       >
         <motion.button
           className="text-3xl md:text-4xl font-varela text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group mr-10"
-          onClick={() => scrollToPosition(2000)} // Scroll to Projects
+          onClick={() => scrollToPosition(1820)} // Scroll to Timeline
           initial={{ opacity: "0%" }}
           animate={{ opacity: "100%" }}
           transition={{ duration: 2 }}
@@ -52,7 +52,7 @@ function Main({ scrollToComponent }) {
         </motion.button>
         <motion.button
           className="text-3xl md:text-4xl font-varela whitespace-nowrap text-gray-400 cursor-pointer hover:text-gray-300 transition-colors group"
-          onClick={() => scrollToPosition(5000)} // Scroll to Contact
+          onClick={() => scrollToPosition(3400)} // Scroll to Contact
           initial={{ opacity: "0%" }}
           animate={{ opacity: "100%" }}
           transition={{ duration: 2 }}
@@ -70,7 +70,7 @@ function Main({ scrollToComponent }) {
         transition={{ duration: 0.5, ease: "easeOut" }}
         viewport={{ once: false }}
       >
-        <motion.p
+        <motion.div
           className="text-white text-5xl md:text-8xl font-anton p-24 -mt-1 font-semibold tracking-wider "
           animate={{ opacity: ["0%", "100%"] }}
           transition={{ duration: 2.5, delay: 0.3 }}
@@ -147,7 +147,7 @@ function Main({ scrollToComponent }) {
             <MapPin className="w-5 h-5 md:mt-2.5 mt-0" />
             <span>Based in Greece</span>
           </motion.div>
-        </motion.p>
+        </motion.div>
       </motion.div>
     </div>
   );

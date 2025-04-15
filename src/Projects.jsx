@@ -8,8 +8,8 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 let reactIcon = <i className="devicon-react-original colored text-5xl"></i>;
-let pythonIcon = <i class="devicon-python-plain text-5xl"></i>;
-let htmlIcon = <i class="devicon-html5-plain"></i>;
+let pythonIcon = <i className="devicon-python-plain text-5xl"></i>;
+let htmlIcon = <i className="devicon-html5-plain"></i>;
 
 function Projects() {
   return (
@@ -21,11 +21,12 @@ function Projects() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false }}
+        key={"div1"}
       >
         <VerticalTimeline>
           {timelineElements.map((element, index) => (
             <VerticalTimelineElement
-              key={element.key}
+              key={element.id}
               date={element.date}
               dateClassName="text-gray-100"
               iconStyle={{

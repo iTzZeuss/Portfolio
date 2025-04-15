@@ -99,7 +99,6 @@ function Team({ scrollToComponent }) {
                 Instagram
               </a>
             </motion.div>
-
             <motion.div className="flex items-center gap-2 md:gap-4 basis-1/2">
               <FontAwesomeIcon
                 icon={faGithub}
@@ -113,7 +112,6 @@ function Team({ scrollToComponent }) {
                 GitHub
               </a>
             </motion.div>
-
             <motion.div className="flex items-center gap-2 md:gap-4 basis-1/2">
               <FontAwesomeIcon
                 icon={faXTwitter}
@@ -127,7 +125,6 @@ function Team({ scrollToComponent }) {
                 Twitter
               </a>
             </motion.div>
-
             <motion.div className="flex items-center gap-2 md:gap-4 basis-1/2">
               <FontAwesomeIcon
                 icon={faDiscord}
@@ -140,11 +137,17 @@ function Team({ scrollToComponent }) {
               >
                 Discord
               </a>
-            </motion.div>
+            </motion.div>{" "}
+            <p
+              className="text-white font-semibold whitespace-nowrap -mt-12 ml-5 text-xl transition-opacity"
+              style={{ opacity: isCopied ? 1 : 0 }}
+            >
+              Copied to clipboard!
+            </p>
           </motion.div>
         </div>
         <motion.div
-          className="w-full md:w-1/2 md:m-48 m-20 flex flex-col md:gap-10 gap-4 items-start md:items-start text-center whitespace-nowrap"
+          className="w-full md:w-1/2 md:m-32 m-20 flex flex-col md:gap-10 gap-4 items-start md:items-start text-center whitespace-nowrap"
           {...motionProps}
         >
           <p className="text-xl md:text-5xl font-varela text-white font-semibold">
@@ -196,7 +199,6 @@ function Team({ scrollToComponent }) {
               </motion.button>
             </div>
           </form>
-
         </motion.div>{" "}
       </div>
       <motion.div

@@ -7,9 +7,6 @@ import "devicon/devicon.min.css";
 const About = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
   const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
   return (
     <div className="bg-neutral-800 w-full">
       <HorizontalScrollCarousel />
@@ -33,76 +30,88 @@ const HorizontalScrollCarousel = () => {
   const cards = isMobile
     ? [
         {
+          id: "Tailwind",
           string: "Tailwind",
-          id: (
+          icon: (
             <i className="devicon-tailwindcss-original colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "React",
           string: "React",
-          id: (
+          icon: (
             <i className="devicon-react-original colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Figma",
           string: "Figma",
-          id: (
+          icon: (
             <i className="devicon-figma-plain colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Git",
           string: "Git",
-          id: (
+          icon: (
             <i className="devicon-git-plain colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Javascript",
           string: "Javascript",
-          id: (
+          icon: (
             <i className="devicon-javascript-plain text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Wordpress",
           string: "Wordpress",
-          id: (
+          icon: (
             <i className="devicon-wordpress-plain text-[80px] md:text-[130px]"></i>
           ),
         },
       ]
     : [
         {
+          id: "Tailwind",
           string: "Tailwind",
-          id: (
+          icon: (
             <i className="devicon-tailwindcss-original colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "React",
           string: "React",
-          id: (
+          icon: (
             <i className="devicon-react-original colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Javascript",
           string: "Javascript",
-          id: (
+          icon: (
             <i className="devicon-javascript-plain text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Git",
           string: "Git",
-          id: (
+          icon: (
             <i className="devicon-git-plain colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Figma",
           string: "Figma",
-          id: (
+          icon: (
             <i className="devicon-figma-plain colored text-[80px] md:text-[130px]"></i>
           ),
         },
         {
+          id: "Wordpress",
           string: "Wordpress",
-          id: (
+          icon: (
             <i className="devicon-wordpress-plain text-[80px] md:text-[130px]"></i>
           ),
         },
@@ -158,7 +167,7 @@ const Card = ({ card }) => {
           onMouseLeave={() => setHovered(false)}
         >
           <div className="text-center px-10">
-            {card.id} <br />
+            {card.icon} <br />
             {card.string}
           </div>
         </div>
